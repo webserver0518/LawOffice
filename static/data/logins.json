@@ -1,0 +1,834 @@
+{
+  "admin": [
+    {
+      "login": "2025-04-19 22:49",
+      "logout": "2025-04-19 22:49"
+    },
+    {
+      "login": "2025-04-20 02:09",
+      "logout": "2025-04-19 23:10"
+    },
+    {
+      "login": "2025-04-20 02:14",
+      "logout": "2025-04-20 02:14"
+    },
+    {
+      "login": "2025-04-20 02:21",
+      "logout": "2025-04-19 23:21"
+    },
+    {
+      "login": "2025-04-20 02:22",
+      "logout": "2025-04-19 23:22"
+    },
+    {
+      "login": "2025-04-20 02:22",
+      "logout": "2025-04-20 02:22"
+    },
+    {
+      "login": "2025-04-20 02:24",
+      "logout": "2025-04-20 02:24"
+    },
+    {
+      "login": "2025-04-20 02:32",
+      "logout": "2025-04-20 02:33"
+    },
+    {
+      "login": "2025-04-20 02:35",
+      "logout": "2025-04-20 02:36"
+    },
+    {
+      "login": "2025-04-20 02:36",
+      "logout": "2025-04-20 02:38"
+    },
+    {
+      "login": "2025-04-20 02:39",
+      "logout": "2025-04-20 02:44"
+    },
+    {
+      "login": "2025-04-20 02:46",
+      "logout": null
+    },
+    {
+      "login": "2025-04-20 02:46",
+      "logout": null
+    },
+    {
+      "login": "2025-04-20 02:50",
+      "logout": null
+    },
+    {
+      "login": "2025-04-20 02:51",
+      "logout": null
+    },
+    {
+      "session_id": "2025-04-20 03:00",
+      "login": "2025-04-20 00:00",
+      "logout": null
+    },
+    {
+      "session_id": "5ad4a026-097e-4840-a3e2-fe07ca884210",
+      "login": "2025-04-20 00:00",
+      "logout": "2025-04-20 03:01"
+    },
+    {
+      "session_id": "2025-04-20 03:01",
+      "login": "2025-04-20 00:01",
+      "logout": null
+    },
+    {
+      "session_id": "053789a7-7641-43de-b067-223a2690f5af",
+      "login": "2025-04-20 00:01",
+      "logout": "2025-04-20 03:06"
+    },
+    {
+      "session_id": "2025-04-20 10:47",
+      "login": "2025-04-20 07:47",
+      "logout": null
+    },
+    {
+      "session_id": "189716b4-f10a-4f8f-8e7d-aca1773882f0",
+      "login": "2025-04-20 07:47",
+      "logout": "2025-04-20 10:48"
+    },
+    {
+      "session_id": "2025-04-20 11:17",
+      "login": "2025-04-20 08:17",
+      "logout": null
+    },
+    {
+      "session_id": "2129bfd7-0b74-4c2d-8a86-878283ec9894",
+      "login": "2025-04-20 08:17",
+      "logout": "2025-04-20 11:18"
+    },
+    {
+      "session_id": "794d5011-359e-4c6e-a2aa-d0558eaf78ab",
+      "login": "2025-04-20 10:26"
+    },
+    {
+      "session_id": "f7d88526-a55a-4d76-bcd4-bab4076a8d38",
+      "login": "2025-04-20 10:32"
+    },
+    {
+      "session_id": "46c2c058-7581-4a80-ae0b-3bb79c724402",
+      "login": "2025-04-20 10:53"
+    },
+    {
+      "session_id": "01e6e04a-0194-46f9-9aac-4e8ee1dc66ce",
+      "login": "2025-04-20 11:06"
+    },
+    {
+      "session_id": "53c7a86c-2195-43e6-8cd1-1288c188f4d5",
+      "login": "2025-04-20 18:46"
+    },
+    {
+      "session_id": "98983611-4594-47e8-895f-bee7a1a37f60",
+      "login": "2025-04-20 20:32"
+    },
+    {
+      "session_id": "2f149e12-2d34-4778-bcb4-27d8523c7ac8",
+      "login": "2025-04-21 10:07"
+    },
+    {
+      "session_id": "e6af776d-0d03-427b-919a-4d68bf09ff4e",
+      "login": "2025-04-21 14:57"
+    },
+    {
+      "session_id": "71b3dbed-43d8-4715-8430-aaac5aeda4d3",
+      "login": "2025-04-21 17:19"
+    },
+    {
+      "session_id": "3ded90ab-999e-48d4-a4dd-8de79a4306bb",
+      "login": "2025-04-21 17:46"
+    },
+    {
+      "session_id": "65729e30-62cd-416c-9d41-2f6216c61ad1",
+      "login": "2025-04-21 17:53"
+    },
+    {
+      "session_id": "703b2a07-15b6-48d8-8916-6b86fc61e149",
+      "login": "2025-04-21 18:01"
+    },
+    {
+      "session_id": "f7c6a64d-5c36-4ecd-b126-ed3abfcc1f0d",
+      "login": "2025-04-21 18:23"
+    },
+    {
+      "session_id": "58414810-286d-4eba-a0bc-bb053105287c",
+      "login": "2025-04-21 18:29"
+    },
+    {
+      "session_id": "493fa1fd-0e5b-4479-9561-2e1229e7fa80",
+      "login": "2025-04-21 19:38"
+    },
+    {
+      "session_id": "6c91fde5-c674-49c2-bc6b-5482d1845245",
+      "login": "2025-04-21 20:02"
+    },
+    {
+      "session_id": "e7520fda-b2e2-49e5-b5d4-d50ddce4bc6b",
+      "login": "2025-04-21 20:09"
+    },
+    {
+      "session_id": "12abfeb0-9a9b-445e-b309-7ddd756c0f4f",
+      "login": "2025-04-21 20:18"
+    },
+    {
+      "session_id": "30525c4c-c2d2-45c8-add5-4c39cc4f74f8",
+      "login": "2025-04-21 20:21"
+    },
+    {
+      "session_id": "a2b9edbd-c21c-4ea5-b2bf-1fd9b9485dbf",
+      "login": "2025-04-21 20:21"
+    },
+    {
+      "session_id": "9c5de2d8-d8a1-4024-a306-5c11983909bc",
+      "login": "2025-04-21 20:21"
+    },
+    {
+      "session_id": "a16aced6-0c4d-4844-a095-d8eb24f9474d",
+      "login": "2025-04-21 20:26"
+    },
+    {
+      "session_id": "e398cf0d-e92e-4c73-8860-50bd99354332",
+      "login": "2025-04-21 20:49"
+    },
+    {
+      "session_id": "1af78e04-8ec3-42bc-b26d-f0498bfcc3cc",
+      "login": "2025-04-21 21:21"
+    },
+    {
+      "session_id": "5e9c59d5-d901-4261-a678-ef29561d66b0",
+      "login": "2025-04-21 22:50"
+    },
+    {
+      "session_id": "8cfa610f-6730-4c46-bc08-fd9b76a3d19e",
+      "login": "2025-04-21 22:50"
+    },
+    {
+      "session_id": "66766074-b9e3-4b02-80dd-374e2acd30fb",
+      "login": "2025-04-21 23:21"
+    },
+    {
+      "session_id": "cb374718-0bf8-4e8e-9120-660be31f19d7",
+      "login": "2025-04-21 23:51"
+    },
+    {
+      "session_id": "e92168f9-f3dd-4b4e-bf0e-cfbf8c29ee1f",
+      "login": "2025-04-22 00:07"
+    },
+    {
+      "session_id": "085e3219-5541-4123-9e8c-120242197095",
+      "login": "2025-04-22 00:09"
+    },
+    {
+      "session_id": "9795e1cf-664a-493a-baa6-a19eb2e6a90d",
+      "login": "2025-04-22 00:35"
+    },
+    {
+      "session_id": "0586b69d-c9f6-4d4d-a5c4-b3cf36b36a0d",
+      "login": "2025-04-22 01:59"
+    },
+    {
+      "session_id": "163d4214-6809-454d-aaa7-b907870fc97f",
+      "login": "2025-04-22 02:10"
+    },
+    {
+      "session_id": "b73adbeb-30b9-4160-9564-c768a8f3ff26",
+      "login": "2025-04-22 07:07"
+    },
+    {
+      "session_id": "b3c0e46f-2673-4506-b5c4-bb6d9e0434f4",
+      "login": "2025-04-22 14:07"
+    },
+    {
+      "session_id": "19d16230-6c77-4b01-a0ed-fbcb11547963",
+      "login": "2025-04-22 15:07"
+    },
+    {
+      "session_id": "42cb3987-5d7d-4554-9228-8877634eb979",
+      "login": "2025-04-22 16:12"
+    },
+    {
+      "session_id": "e07c0a4d-d524-44d7-8604-85b2578653d2",
+      "login": "2025-04-22 16:59"
+    },
+    {
+      "session_id": "5ee8a349-955b-4c95-ae81-1300619e251b",
+      "login": "2025-04-22 19:04"
+    },
+    {
+      "session_id": "e85fbf54-2ed1-4f63-af6b-7e8e81a12daa",
+      "login": "2025-04-25 16:49"
+    },
+    {
+      "session_id": "0c7c0d57-8e4a-49a4-89c2-5d2d403dc645",
+      "login": "2025-04-25 17:01"
+    },
+    {
+      "session_id": "0e709874-5575-4dea-9e01-9b8882957229",
+      "login": "2025-04-25 17:02"
+    },
+    {
+      "session_id": "1133b6fd-1204-4fdf-88b8-466ad17b6d58",
+      "login": "2025-04-25 17:16"
+    },
+    {
+      "session_id": "c4dbbbc5-8a1d-4f93-80b1-02f869347b17",
+      "login": "2025-04-25 17:16"
+    },
+    {
+      "session_id": "a8c0e39f-8bf0-48bc-92d5-1f74fc3d655f",
+      "login": "2025-04-25 17:18"
+    },
+    {
+      "session_id": "c33c3d4d-414d-4335-8488-7d3d16197ecf",
+      "login": "2025-04-25 17:18"
+    },
+    {
+      "session_id": "0d1d8de7-af52-4afd-b462-58a5a429c814",
+      "login": "2025-04-25 19:11"
+    },
+    {
+      "session_id": "4fac83e5-b60a-4fb4-8776-e72b9d3df40f",
+      "login": "2025-04-25 19:34"
+    },
+    {
+      "session_id": "245ec262-9019-4015-b41b-6214f9cde097",
+      "login": "2025-04-25 19:36"
+    },
+    {
+      "session_id": "ebcb05e4-c3f2-4ba9-ac32-a487e7f326b1",
+      "login": "2025-04-25 21:28"
+    },
+    {
+      "session_id": "32a6b840-78fe-403e-9003-758ca8c96366",
+      "login": "2025-04-25 22:55"
+    },
+    {
+      "session_id": "613a967b-3220-4da3-9e72-27f88e351073",
+      "login": "2025-04-26 19:56"
+    },
+    {
+      "session_id": "bee57345-ca69-49c2-965c-29356a709ac3",
+      "login": "2025-04-26 21:52"
+    },
+    {
+      "session_id": "ec848cd3-3db4-405e-8fa9-3b1581fe830a",
+      "login": "2025-04-26 21:52"
+    },
+    {
+      "session_id": "db66733e-d397-47fd-8fa7-ff696bcd3126",
+      "login": "2025-04-26 21:52"
+    },
+    {
+      "session_id": "ee243f55-73a3-40e1-a9f7-4bfaa736a172",
+      "login": "2025-04-26 21:56"
+    },
+    {
+      "session_id": "5a12d1d4-6721-4e02-ba17-0ba8a5397498",
+      "login": "2025-04-26 21:57"
+    },
+    {
+      "session_id": "5df4028b-a2e8-4fbf-9482-f9ac2c2fdb9f",
+      "login": "2025-04-26 22:07"
+    },
+    {
+      "session_id": "7f6f479d-d9b6-4f42-b691-a1b658b3ee82",
+      "login": "2025-04-26 22:08"
+    },
+    {
+      "session_id": "dfa0ef54-a87a-4a81-81fc-d7eececb9c11",
+      "login": "2025-04-26 22:09"
+    },
+    {
+      "session_id": "3b2b31cc-5492-4bfa-8d12-5128fd87b0d0",
+      "login": "2025-04-27 21:37"
+    },
+    {
+      "session_id": "dab701c0-41d6-4409-a472-4ead6a079a69",
+      "login": "2025-04-27 21:40"
+    },
+    {
+      "session_id": "dc0f656d-e2f7-435f-8a99-c3a4887ad83e",
+      "login": "2025-04-27 21:41"
+    },
+    {
+      "session_id": "ceb4ef1e-589e-4a63-a307-257f69546cd8",
+      "login": "2025-04-27 21:42"
+    },
+    {
+      "session_id": "9f91242b-15a5-4c7c-af05-a58d362d2e87",
+      "login": "2025-04-27 21:43"
+    },
+    {
+      "session_id": "41077dee-c2e7-4427-a9a3-6bd9831c4844",
+      "login": "2025-04-27 21:43"
+    },
+    {
+      "session_id": "48302d48-aafb-4b0e-bfb2-9c43057e16be",
+      "login": "2025-04-27 21:50"
+    },
+    {
+      "session_id": "45feedf2-47b5-465f-ac27-261ed5d6e7c5",
+      "login": "2025-04-27 22:51"
+    },
+    {
+      "session_id": "fb706615-edc5-4934-8b6c-75641923a94c",
+      "login": "2025-04-27 22:59"
+    },
+    {
+      "session_id": "783a3c61-17ea-47cd-96fa-1227b8fc0aac",
+      "login": "2025-04-27 23:00"
+    },
+    {
+      "session_id": "417e1f75-33d9-442f-89ff-abe11e31587d",
+      "login": "2025-04-29 18:55"
+    }
+  ],
+  "matan": [
+    {
+      "login": "2025-04-19 22:59",
+      "logout": "2025-04-19 22:59"
+    },
+    {
+      "login": "2025-04-20 02:18",
+      "logout": "2025-04-19 23:18"
+    },
+    {
+      "login": "2025-04-20 02:17",
+      "logout": "2025-04-19 23:21"
+    },
+    {
+      "login": "2025-04-20 02:25",
+      "logout": "2025-04-20 02:25"
+    },
+    {
+      "login": "2025-04-20 02:25",
+      "logout": null
+    },
+    {
+      "login": "2025-04-20 02:26",
+      "logout": null
+    },
+    {
+      "login": "2025-04-20 02:37",
+      "logout": "2025-04-20 02:37"
+    },
+    {
+      "session_id": "2025-04-20 03:00",
+      "login": "2025-04-20 00:00",
+      "logout": null
+    },
+    {
+      "session_id": "be059fca-bf9d-4a18-b9f5-6e24ecf8e537",
+      "login": "2025-04-20 00:00",
+      "logout": null
+    },
+    {
+      "session_id": "2025-04-20 03:01",
+      "login": "2025-04-20 00:01",
+      "logout": null
+    },
+    {
+      "session_id": "66fb5cc0-318e-4d4b-8c47-faef8e893924",
+      "login": "2025-04-20 00:01",
+      "logout": null
+    },
+    {
+      "session_id": "2025-04-20 13:05",
+      "login": "2025-04-20 10:05",
+      "logout": null
+    },
+    {
+      "session_id": "9346f0bc-698d-4df9-b669-ccb044b68869",
+      "login": "2025-04-20 10:05",
+      "logout": null
+    },
+    {
+      "session_id": "2b28ea13-551f-408b-a143-27bb9bc59982",
+      "login": "2025-04-21 14:43"
+    },
+    {
+      "session_id": "45a0f714-957e-4166-bcfa-8a967ebdcbde",
+      "login": "2025-04-21 17:28"
+    },
+    {
+      "session_id": "0f763ae7-d1e3-4d07-be07-ee9f7aefd266",
+      "login": "2025-04-21 17:49"
+    },
+    {
+      "session_id": "d004d71c-4099-4cce-9fef-a3721f153d61",
+      "login": "2025-04-21 18:11"
+    },
+    {
+      "session_id": "21fdf3f3-cbd8-4358-83e6-f6c6786b6b74",
+      "login": "2025-04-21 18:27"
+    },
+    {
+      "session_id": "f462f7ad-5e91-4ac2-934c-91ff89e6aacb",
+      "login": "2025-04-21 18:33"
+    },
+    {
+      "session_id": "0a70baba-a110-4994-b968-f7a7f346fc88",
+      "login": "2025-04-21 18:52"
+    },
+    {
+      "session_id": "8ccf3559-b26a-4996-871c-a0cd999d1fd8",
+      "login": "2025-04-21 19:30"
+    },
+    {
+      "session_id": "c8d02122-11fa-4108-ae99-17634f4b62d6",
+      "login": "2025-04-21 19:32"
+    },
+    {
+      "session_id": "3fe39495-bb46-4992-9fa0-c61641a9bc22",
+      "login": "2025-04-21 19:33"
+    },
+    {
+      "session_id": "0615732a-1903-4f98-bb86-9f37d99e8ed9",
+      "login": "2025-04-21 19:36"
+    },
+    {
+      "session_id": "9379d462-c2c0-4f84-a41c-60b04f95c6c3",
+      "login": "2025-04-21 19:37"
+    },
+    {
+      "session_id": "44a7d316-6a3d-4949-84df-a1b44317fce6",
+      "login": "2025-04-21 19:49"
+    },
+    {
+      "session_id": "0a0f16d1-8b56-4390-a5a3-73588227bba4",
+      "login": "2025-04-21 19:57"
+    },
+    {
+      "session_id": "a71cce82-11a8-4c7a-9f07-6ed91320fc26",
+      "login": "2025-04-21 20:13"
+    },
+    {
+      "session_id": "cd3dc6ba-74e0-40fd-8d8b-0d32bf793248",
+      "login": "2025-04-21 20:49"
+    },
+    {
+      "session_id": "a456c3b9-7c16-4fdb-8da1-554d6b4b4cf3",
+      "login": "2025-04-21 21:24"
+    },
+    {
+      "session_id": "526319f8-1052-4f58-89d0-1bc6073f9a1f",
+      "login": "2025-04-21 21:40"
+    },
+    {
+      "session_id": "4537de37-e209-4e7f-8898-ec264742e7ee",
+      "login": "2025-04-21 22:42"
+    },
+    {
+      "session_id": "bd3e5ab8-ab0d-49bf-a2cf-ba42e31ea7af",
+      "login": "2025-04-21 22:49"
+    },
+    {
+      "session_id": "bc54c28a-0eb0-4fc6-beab-eaa6b80bd472",
+      "login": "2025-04-21 22:59"
+    },
+    {
+      "session_id": "d083daab-2444-47e6-9b66-6b0dcf48b6ff",
+      "login": "2025-04-21 23:00"
+    },
+    {
+      "session_id": "f7cd053e-4b7c-492f-9cee-f7b1a5d9b72f",
+      "login": "2025-04-21 23:01"
+    },
+    {
+      "session_id": "c668e7d1-e94f-47bf-9103-03806dc8766c",
+      "login": "2025-04-21 23:14"
+    },
+    {
+      "session_id": "ae39ae35-4366-4f52-ae4f-fa9b99cffb00",
+      "login": "2025-04-21 23:25"
+    },
+    {
+      "session_id": "ee49c7f3-5413-4b6e-95ae-086cc9cf2825",
+      "login": "2025-04-21 23:29"
+    },
+    {
+      "session_id": "87fbd66f-277b-4751-a36e-7b809f7eed37",
+      "login": "2025-04-22 00:27"
+    },
+    {
+      "session_id": "bffab401-0909-48aa-8136-fccea76c8807",
+      "login": "2025-04-22 01:20"
+    },
+    {
+      "session_id": "61cb1d75-4ca9-49a5-aa30-f6c04f5f6e15",
+      "login": "2025-04-22 01:36"
+    },
+    {
+      "session_id": "ea1285b7-1ed1-4c5a-89a9-29dee81e9108",
+      "login": "2025-04-22 01:47"
+    },
+    {
+      "session_id": "82961f29-db80-4b0b-a334-57d2625e4527",
+      "login": "2025-04-22 14:17"
+    },
+    {
+      "session_id": "a8a5bcac-7da4-43a1-a3ad-7065d8c0986b",
+      "login": "2025-04-22 14:40"
+    },
+    {
+      "session_id": "413d2439-d46b-4411-b058-1b8654f14897",
+      "login": "2025-04-22 14:41"
+    },
+    {
+      "session_id": "41162b93-79a2-4e2f-a1f2-ca5d8cde747d",
+      "login": "2025-04-22 14:55"
+    },
+    {
+      "session_id": "fb853a09-9019-4969-9910-902142c4330f",
+      "login": "2025-04-22 15:52"
+    },
+    {
+      "session_id": "84bc0d65-3d9a-46d7-869e-61dbf7eb9e0a",
+      "login": "2025-04-22 15:53"
+    },
+    {
+      "session_id": "5fa82ae1-efd7-42de-8ae1-edb127da092c",
+      "login": "2025-04-22 15:59"
+    },
+    {
+      "session_id": "9d9f4da6-7e08-4833-b3ec-e25f7b316891",
+      "login": "2025-04-22 15:59"
+    },
+    {
+      "session_id": "61e489a1-e141-49e2-b5c4-c7ac57cd7aab",
+      "login": "2025-04-22 16:01"
+    },
+    {
+      "session_id": "10ab6895-2962-4b04-86b7-8f8a0ed5a4c2",
+      "login": "2025-04-22 16:10"
+    },
+    {
+      "session_id": "011d031a-23ee-4e90-b812-69b663ea3e07",
+      "login": "2025-04-22 16:29"
+    },
+    {
+      "session_id": "f7896485-cc3c-4d67-b954-a58db5dee159",
+      "login": "2025-04-22 18:42"
+    },
+    {
+      "session_id": "22e128c0-7c06-4b54-b525-0dcadde1d644",
+      "login": "2025-04-22 18:49"
+    },
+    {
+      "session_id": "8ce94181-bb4a-4e0e-94c3-58002ffa7518",
+      "login": "2025-04-22 18:49"
+    },
+    {
+      "session_id": "b91567c4-1a33-4cdb-9870-67f38f90543f",
+      "login": "2025-04-23 15:47"
+    },
+    {
+      "session_id": "d793fa6c-8fdb-4526-836c-35b9943396c6",
+      "login": "2025-04-23 22:02"
+    },
+    {
+      "session_id": "fe4307d9-c524-4485-a7f8-df2c0ad9ff51",
+      "login": "2025-04-23 22:02"
+    },
+    {
+      "session_id": "ee174cab-ea22-41d8-9382-1fe5b082f2c2",
+      "login": "2025-04-23 23:55"
+    },
+    {
+      "session_id": "bd4bd517-b429-4f9f-9eaa-9072e2faa044",
+      "login": "2025-04-25 16:34"
+    },
+    {
+      "session_id": "f73a4498-c4e5-448e-b9b4-04ff5f03a11d",
+      "login": "2025-04-25 16:37"
+    },
+    {
+      "session_id": "4ece7c63-f12e-4f11-9c43-042bcee5db1a",
+      "login": "2025-04-25 17:00"
+    },
+    {
+      "session_id": "8555fbcf-427f-4b6a-922f-875ee1ae0542",
+      "login": "2025-04-25 17:01"
+    },
+    {
+      "session_id": "ae5a751f-2e40-4e19-ba18-515e4ad60a18",
+      "login": "2025-04-25 17:01"
+    },
+    {
+      "session_id": "53610e6d-af9a-42aa-a2ba-5b1b79f61b41",
+      "login": "2025-04-25 17:14"
+    },
+    {
+      "session_id": "8a257e91-1c69-4ecc-ad2a-e677ab07769c",
+      "login": "2025-04-25 18:59"
+    },
+    {
+      "session_id": "f34f9e9b-72f3-4331-bbc7-8cb3aa89e77a",
+      "login": "2025-04-25 19:16"
+    },
+    {
+      "session_id": "609eccfb-eff5-48d0-9a55-8d04d38a6784",
+      "login": "2025-04-25 19:46"
+    },
+    {
+      "session_id": "3d5fb55a-05cc-4b86-bcd6-fa7598851d51",
+      "login": "2025-04-25 20:07"
+    },
+    {
+      "session_id": "b95abaa3-041d-484e-9349-31969e9c901a",
+      "login": "2025-04-25 20:16"
+    },
+    {
+      "session_id": "4ae05f5e-cadd-48f2-8978-2cae9bbca969",
+      "login": "2025-04-25 20:22"
+    },
+    {
+      "session_id": "cdb72c7e-9e89-4292-be66-792994463844",
+      "login": "2025-04-25 20:28"
+    },
+    {
+      "session_id": "b6686a5d-8c9b-4141-9e1e-2f4ba62915f6",
+      "login": "2025-04-25 20:47"
+    },
+    {
+      "session_id": "1e09d70c-f5a1-464b-a72f-989d1a902eba",
+      "login": "2025-04-25 22:07"
+    },
+    {
+      "session_id": "acbe25f8-4df1-4081-a7d3-0aa7bd1ee0a4",
+      "login": "2025-04-26 18:29"
+    },
+    {
+      "session_id": "a4ee3709-ba5a-44d1-8a9a-4a676fa35861",
+      "login": "2025-04-26 18:55"
+    },
+    {
+      "session_id": "2f94a19b-6635-4518-b9e0-0bc6d74cb5cb",
+      "login": "2025-04-26 19:57"
+    },
+    {
+      "session_id": "6c14156f-b260-41b5-9511-bcbe115ae659",
+      "login": "2025-04-26 20:13"
+    },
+    {
+      "session_id": "ed8c8a6e-7bb8-450d-94e4-12f4c5d2c016",
+      "login": "2025-04-26 20:30"
+    },
+    {
+      "session_id": "7522c9d2-a481-4d3a-ae9d-b38ff26f5b58",
+      "login": "2025-04-26 20:38"
+    },
+    {
+      "session_id": "03e65578-1052-477c-83d0-7140e05f2560",
+      "login": "2025-04-26 20:44"
+    },
+    {
+      "session_id": "5bffc728-c190-4258-8133-f80a09587a0b",
+      "login": "2025-04-26 21:44"
+    },
+    {
+      "session_id": "1eeb1a06-ea62-4c66-984a-0ec88d65368f",
+      "login": "2025-04-26 21:50"
+    },
+    {
+      "session_id": "2d3e6f2c-a975-41e8-b1dd-f5b0b3fd2748",
+      "login": "2025-04-26 21:52"
+    },
+    {
+      "session_id": "a0239c8e-4f1c-4815-9286-15791c7dab53",
+      "login": "2025-04-26 22:05"
+    },
+    {
+      "session_id": "638fd6f9-d1e5-4977-9a45-e252cd9c6606",
+      "login": "2025-04-26 22:08"
+    },
+    {
+      "session_id": "36bddeaf-a3c4-43af-9ff1-21a697e0eae0",
+      "login": "2025-04-26 22:08"
+    },
+    {
+      "session_id": "70b8acaf-2200-474b-87a9-0aeaed6ef774",
+      "login": "2025-04-26 22:21"
+    },
+    {
+      "session_id": "257b89d8-dc1e-40c1-a36f-6b9f1fe181d8",
+      "login": "2025-04-27 20:06"
+    },
+    {
+      "session_id": "cf7df35c-bcb3-46af-9a1e-b68e913586f7",
+      "login": "2025-04-27 21:36"
+    },
+    {
+      "session_id": "381d1282-1fcc-40b2-8ed1-6103c1b12460",
+      "login": "2025-04-27 22:52"
+    },
+    {
+      "session_id": "3baaced7-066c-4768-985e-a7a2d5a9cb1c",
+      "login": "2025-04-27 22:58"
+    },
+    {
+      "session_id": "f5c495c6-e9e7-464b-a103-a92f89081b87",
+      "login": "2025-04-28 18:45"
+    },
+    {
+      "session_id": "4e54b367-048f-4b98-a8d8-53598b69540b",
+      "login": "2025-04-28 19:11"
+    }
+  ],
+  "israel": [
+    {
+      "session_id": "d8c672cf-c557-4e0a-aac2-ea8fb7ce88ac",
+      "login": "2025-04-22 07:07"
+    },
+    {
+      "session_id": "30e155f9-c9d7-4109-8f1a-f55ddc7730e0",
+      "login": "2025-04-22 18:42"
+    },
+    {
+      "session_id": "b66f6bbd-7fd1-436a-92d4-bf68c05b6f7e",
+      "login": "2025-04-22 18:43"
+    },
+    {
+      "session_id": "788fe651-29f1-4b69-8714-6519dc409f04",
+      "login": "2025-04-22 18:49"
+    },
+    {
+      "session_id": "b7918338-c550-4554-8778-0fc4c323c171",
+      "login": "2025-04-22 19:07"
+    },
+    {
+      "session_id": "5f87692b-bbf0-443c-861a-92893797f647",
+      "login": "2025-04-22 19:27"
+    },
+    {
+      "session_id": "b8074981-36b4-481d-8725-271de96d91b0",
+      "login": "2025-04-22 19:38"
+    },
+    {
+      "session_id": "1c616e19-1d29-4c14-9a9e-0abbfce66771",
+      "login": "2025-04-23 08:26"
+    },
+    {
+      "session_id": "7dac1dcf-22ef-4ed3-8247-7f2dfe81e008",
+      "login": "2025-04-23 19:18"
+    },
+    {
+      "session_id": "fcf28593-1e78-47c2-b2ce-30fd07be409d",
+      "login": "2025-04-28 06:06"
+    },
+    {
+      "session_id": "c626dc2e-b874-4c82-a0b0-ec5b880940f0",
+      "login": "2025-04-28 16:59"
+    },
+    {
+      "session_id": "7cf0f0de-cdf3-4a40-9402-d040a9848948",
+      "login": "2025-04-29 18:56"
+    },
+    {
+      "session_id": "851ebe30-cba2-4cc0-9a5a-0e3d1d372312",
+      "login": "2025-04-29 18:56"
+    }
+  ]
+}

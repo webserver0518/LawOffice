@@ -1,0 +1,19 @@
+<div class="card mx-auto" style="max-width: 700px;">
+  <h2 class="text-center">מידע על השרת</h2>
+
+  <div class="info-item"><span class="label">שם שרת:</span> <span>{{ info.hostname }}</span></div>
+  <div class="info-item"><span class="label">כתובת IP:</span> <span>{{ info.ip_address }}</span></div>
+  <div class="info-item"><span class="label">מערכת הפעלה:</span> <span>{{ info.os }}</span></div>
+  <div class="info-item"><span class="label">גרסת פייתון:</span> <span>{{ info.python_version }}</span></div>
+
+  <hr>
+
+  <div class="info-item"><span class="label">ליבות CPU פיזיות:</span> <span>{{ info.cpu_cores }}</span></div>
+  <div class="info-item"><span class="label">תהליכונים לוגיים:</span> <span>{{ info.cpu_threads }}</span></div>
+  <div class="info-item"><span class="label">שימוש במעבד:</span> <span>{{ info.cpu_usage }}%</span></div>
+
+  <hr>
+
+  <div class="info-item"><span class="label">שימוש בזיכרון:</span> <span>{{ info.memory_used }}GB מתוך {{ info.memory_total }}GB ({{ info.memory_percent }}%)</span></div>
+  <div class="info-item"><span class="label">שימוש בדיסק:</span> <span>{{ info.disk_used }}GB מתוך {{ info.disk_total }}GB ({{ info.disk_percent }}%)</span></div>
+</div>

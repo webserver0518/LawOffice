@@ -1,0 +1,16 @@
+<div class="container py-5 text-center">
+  <h2>סטטיסטיקות 📊</h2>
+  <p>סה"כ התחברויות: <strong>{{ total_logins }}</strong></p>
+  <p>משתמש הכי פעיל: <strong>{{ most_active_user }}</strong></p>
+  <h4 class="mt-4">התחברות (לפי שעה)</h4>
+  <table class="table table-bordered w-50 mx-auto">
+    <thead>
+      <tr><th>שעה</th><th>כמות</th></tr>
+    </thead>
+    <tbody>
+      {% for hour, count in hour_distribution %}
+      <tr><td>{{ hour }}:00</td><td>{{ count }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

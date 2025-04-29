@@ -1,0 +1,63 @@
+<!-- templates/admin_components/user_managment.html -->
+<div class="container py-4">
+
+  <!-- טופס הוספת משתמש חדש -->
+  <form id="addUserForm" class="row gy-2 align-items-end">
+    <div class="col-sm-4">
+      <label class="form-label">שם משתמש חדש</label>
+      <input name="username" class="form-control" required autocomplete="off">
+    </div>
+    <div class="col-sm-4">
+      <label class="form-label">סיסמה</label>
+      <input name="password" type="password" class="form-control" required>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success w-100">הוסף</button>
+    </div>
+  </form>
+
+  <hr>
+
+  <!-- טבלת משתמשים קיימים -->
+  <table class="table table-striped text-center align-middle" id="usersTable">
+    <thead class="table-light">
+      <tr>
+        <th>שם משתמש</th>
+        <th>נוצר</th>
+        <th>איפוס סיסמה</th>
+        <th>מחיקה</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for u in users %}
+      <tr>
+        <td>{{ u.username }}</td>
+        <td>{{ u.created_at }}</td>
+
+        <!-- איפוס / עדכון סיסמה (לאדמין עצמו אין) -->
+        <td>
+          {% if u.username != 'admin' %}
+          <form onsubmit="updateUser(event, '{{ u.username }}')" class="d-flex gap-2">
+            <input type="password" name="password" class="form-control form-control-sm"
+                   placeholder="סיסמה חדשה" required>
+            <button class="btn btn-primary btn-sm">עדכן</button>
+          </form>
+          {% else %} --- {% endif %}
+        </td>
+
+        <!-- מחיקת משתמש (לאדמין עצמו אין) -->
+        <td>
+          {% if u.username != 'admin' %}
+          <button class="btn btn-outline-danger btn-sm"
+                  onclick="deleteUser('{{ u.username }}')">🗑</button>
+          {% else %} --- {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+<!-- מפעיל JS לאחר שה-HTML נטען פנימה -->
+<script>initUserForm();</script>

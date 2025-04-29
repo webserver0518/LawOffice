@@ -1,0 +1,19 @@
+<div class="login-wrapper">
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="login-card">
+    <h4>כניסה למערכת</h4>
+    <form method="post" action="/login" id="loginForm">
+      <div class="mb-3">
+        <label class="form-label">שם משתמש</label>
+        <input name="username" autocomplete="off" class="form-control" required value="{{ username }}" required autofocus>
+        <input type="hidden" autocomplete="off" name="local_time" id="local_time">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">סיסמה</label>
+        <input type="password" name="password" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">🔐 התחבר</button>
+    </form>
+    </div>
+  </div>
+</div>

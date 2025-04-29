@@ -1,0 +1,126 @@
+<div class="add-case-page">
+    <form id="new-case-form" action="/client_create" method="post" enctype="multipart/form-data">
+  
+      <div class="accordion" id="caseAccordion">
+  
+        <!-- חלק 1 – פרטי הלקוח -->
+        <div class="accordion-item border-0">
+          <h2 class="accordion-header" id="headingClient">
+            <button class="section-header w-100 text-start collapsed" type="button" data-target="#collapseClient">
+              פרטי הלקוח
+            </button>
+          </h2>
+          <div id="collapseClient" class="accordion-collapse">
+            <div class="accordion-body section-content">
+              <div class="mb-3">
+                <label class="form-label required">שם הלקוח</label>
+                <div class="position-relative">
+                    <input name="client_name" class="form-control" id="client-name-input" required autocomplete="off" autocorrect="off" spellcheck="false">
+                    <ul id="client-suggestions" class="list-group position-absolute w-100" style="z-index: 1000;"></ul>
+                </div>
+                
+              </div>
+              <div class="mb-3">
+                <label class="form-label">טלפון</label>
+                <input name="client_phone" class="form-control" autocomplete="off" autocorrect="off" spellcheck="false">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">אימייל</label>
+                <input type="email" name="client_email" class="form-control" autocomplete="off" autocorrect="off" spellcheck="false">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">כתובת</label>
+                <input name="client_address" class="form-control" autocomplete="off" autocorrect="off" spellcheck="false">
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- חלק 2 – פרטי התיק -->
+        <div class="accordion-item border-0">
+          <h2 class="accordion-header" id="headingCase">
+            <button class="section-header w-100 text-start collapsed" type="button" data-target="#collapseCase">
+              פרטי התיק
+            </button>
+          </h2>
+          <div id="collapseCase" class="accordion-collapse">
+            <div class="accordion-body section-content">
+              <div class="mb-3">
+                <label class="form-label required">כותרת תיק</label>
+                <input name="case_title" class="form-control" required autocomplete="off" autocorrect="off" spellcheck="false">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">קטגוריה</label>
+                
+                <div class="position-relative">
+                    <input name="category" id="category-input" class="form-control" autocomplete="off">
+                    <ul id="category-suggestions" class="list-group position-absolute w-100" style="z-index: 1000;"></ul>
+                  </div>
+                
+
+              </div>
+              <div class="mb-3">
+                <label class="form-label">עובדות המקרה</label>
+                <textarea name="case_facts" rows="5" class="form-control" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="תאר בקצרה את פרטי המקרה..."></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- חלק 3 – העלאת קבצים -->
+        <div class="accordion-item border-0">
+          <h2 class="accordion-header" id="headingFiles">
+            <button class="section-header w-100 text-start collapsed" type="button" data-target="#collapseFiles">
+              העלאת קבצים
+            </button>
+          </h2>
+          <div id="collapseFiles" class="accordion-collapse">
+            <div class="accordion-body section-content">
+
+              <!-- אזור Drag & Drop / בחירה -->
+              <div id="drop-area">
+                גרור קבצים לכאן או לחץ לבחירה
+                <input type="file" id="fileElem" hidden multiple>
+                <button type="button" class="btn btn-outline-primary btn-sm mt-2" onclick="fileElem.click()">בחר קבצים</button>
+              </div>
+  
+              <!-- טבלה -->
+              <table class="table table-striped table-sm mt-3" id="fileTable">
+                <thead class="table-light">
+                  <tr>
+                    <th style="width:45%">שם קובץ</th>
+                    <th style="width:35%">סוג קובץ</th>
+                    <th style="width:20%">ביטול</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+  
+              <!-- הקלט “האמתי” שנשלח לשרת -->
+              <input type="file" name="files" id="realFileInput" hidden multiple>
+            </div>
+          </div>
+        </div>
+  
+        <!-- חלק 4 – אישור וסיום -->
+        <div class="accordion-item border-0">
+          <h2 class="accordion-header" id="headingSubmit">
+            <button class="section-header w-100 text-start collapsed" type="button" data-target="#collapseSubmit">
+              אישור וסיום
+            </button>
+          </h2>
+          <div id="collapseSubmit" class="accordion-collapse">
+            <div class="accordion-body section-content text-center">
+              <p class="mb-4">
+                לחץ על <strong>פתח תיק</strong> כדי לשמור את הנתונים ולהעלות את הקבצים.
+              </p>
+              <button class="btn btn-success btn-lg w-100">פתח תיק</button>
+            </div>
+          </div>
+        </div>
+  
+      </div><!-- /accordion -->
+  
+    </form>
+  </div>
+  
