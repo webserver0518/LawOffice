@@ -5,7 +5,6 @@ from user_managment import UserManager
 from data_managment import DataManager
 
 from datetime import datetime
-from collections import Counter
 import uuid
 
 
