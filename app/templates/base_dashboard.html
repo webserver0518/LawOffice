@@ -32,8 +32,8 @@
       <a href="#" class="sidebar-link" data-type="client" data-sidebar="sidebar" data-sub-sidebar="attendancy" >שעון נוכחות</a>
     {% endif %}
     <hr>
-    <a href="{{ url_for('base_site') }}">דף הבית</a>
-    <a href="{{ url_for('logout') }}" onclick="clearStorageAndLogout(event)">התנתקות</a>
+    <a href="{{ url_for('site.home') }}">דף הבית</a>
+    <a href="{{ url_for('site.logout') }}" onclick="clearStorageAndLogout(event)">התנתקות</a>
   </div>
 
   <!-- כפתור ו-Sub-Sidebar עבור משתמש רגיל -->

@@ -1,62 +1,96 @@
 import os
 import json
+from werkzeug.utils import secure_filename
 
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+# נתיבים מרכזיים
+BASE_SYSTEM_DATA = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "data"))
+BASE_USER_UPLOADS = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "uploads"))
 
 class DataManager:
 
-    USERS_FILE = os.path.join(BASE_DIR, "static/data", "users.json")
-    LOGIN_LOG_FILE = os.path.join(BASE_DIR, "static/data", "logins.json")
-    
-    head_folder = 'static/data'
-    files_names = [
-        'users',
-        'logins'
-    ]
+    system_files = ["users", "logins"]
 
     @staticmethod
-    def load_json(file_name):
-        if file_name not in DataManager.files_names:
+    def load_json(file_name, subfolder="system"):
+        if subfolder == "system":
+            folder = BASE_SYSTEM_DATA
+            if file_name not in DataManager.system_files:
+                return None
+        else:
+            folder = os.path.join(BASE_USER_UPLOADS, secure_filename(subfolder))
+
+        file_path = os.path.join(folder, f"{file_name}.json")
+        if not os.path.exists(file_path):
             return None
-        file_path = os.path.join(BASE_DIR, DataManager.head_folder, file_name + ".json")
+
         with open(file_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
-
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                return None
 
     @staticmethod
-    def save_json(file_name, data):
-        if file_name not in DataManager.files_names:
-            return None
-        file_path = os.path.join(BASE_DIR, DataManager.head_folder, file_name + ".json")
+    def save_json(file_name, data, subfolder="system"):
+        if subfolder == "system":
+            folder = BASE_SYSTEM_DATA
+            if file_name not in DataManager.system_files:
+                return None
+        else:
+            folder = os.path.join(BASE_USER_UPLOADS, secure_filename(subfolder))
+
+        os.makedirs(folder, exist_ok=True)
+        file_path = os.path.join(folder, f"{file_name}.json")
+
         with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
 
-
     @staticmethod
     def get_user_cases(username):
-        safe_name = username.replace(" ", "_")
-        folder_path = os.path.join(DataManager.head_folder, safe_name)
-        file_path = os.path.join(folder_path, f"{safe_name}_cases.json")
-
-        if not os.path.exists(file_path):
-            return []
-
-        with open(file_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
+        safe_name = secure_filename(username)
+        return DataManager.load_json("cases_index", subfolder=safe_name) or []
 
     @staticmethod
-    def save_user_case(username, case_data):
-        safe_name = username.replace(" ", "_")
-        folder_path = os.path.join(DataManager.head_folder, safe_name)
-        os.makedirs(folder_path, exist_ok=True)
-        file_path = os.path.join(folder_path, f"{safe_name}_cases.json")
+    def save_case_with_sequence(username, case_data):
+        safe_name = secure_filename(username)
+        user_dir = os.path.join(BASE_USER_UPLOADS, safe_name)
+        os.makedirs(user_dir, exist_ok=True)
 
-        if os.path.exists(file_path):
-            with open(file_path, 'r', encoding='utf-8') as f:
-                cases = json.load(f)
-                cases.append(case_data)
+        index_path = os.path.join(user_dir, "cases_index.json")
+        cases_index = []
 
-                with open(file_path, 'w', encoding='utf-8') as f:
-                    json.dump(cases, f, indent=2, ensure_ascii=False)
+        # טען את קובץ האינדקס אם קיים
+        if os.path.exists(index_path):
+            with open(index_path, 'r', encoding='utf-8') as f:
+                try:
+                    cases_index = json.load(f)
+                except json.JSONDecodeError:
+                    cases_index = []
 
-        
+        # מספר סידורי חדש
+        case_number = len(cases_index) + 1
+        folder_name = f"תיק_{case_number:04d}"
+
+        case_data["serial_number"] = case_number
+        case_data["folder_name"] = folder_name
+
+        # צור תיקייה לתיק
+        case_dir = os.path.join(user_dir, folder_name)
+        os.makedirs(case_dir, exist_ok=True)
+
+        # שמור את הקובץ הראשי של התיק
+        case_json_path = os.path.join(case_dir, "case.json")
+        with open(case_json_path, 'w', encoding='utf-8') as f:
+            json.dump(case_data, f, ensure_ascii=False, indent=2)
+
+        # הוסף לאינדקס
+        cases_index.append({
+            "serial_number": case_number,
+            "folder_name": folder_name,
+            "case_title": case_data.get("case_title"),
+            "client_name": case_data.get("client_name"),
+            "category": case_data.get("category"),
+            "date": case_data.get("date")
+        })
+
+        with open(index_path, 'w', encoding='utf-8') as f:
+            json.dump(cases_index, f, ensure_ascii=False, indent=2)

@@ -3,6 +3,10 @@ from app.utils.data_managment import DataManager
 from app.utils.legal_case_classes import GreetingHelper
 from datetime import datetime
 
+import os
+from werkzeug.utils import secure_filename
+import uuid
+
 
 client_bp = Blueprint('client', __name__)
 
@@ -20,27 +24,18 @@ def base_dashboard():
 
 @client_bp.route('/client_create', methods=['POST'])
 def client_create():
-    username = session.get("user", "anonymous")
-    if not username:
-        username = "anonymous"
+    if not session.get('logged_in'):
+        flash("⛔ אין הרשאה", "danger")
+        return redirect(url_for('site.home'))
 
-    case_data = {
-        "client_name": request.form.get("client_name"),
-        "client_phone": request.form.get("client_phone"),
-        "client_email": request.form.get("client_email"),
-        "client_address": request.form.get("client_address"),
-        "case_title": request.form.get("case_title"),
-        "category": request.form.get("category"),
-        "case_facts": request.form.get("case_facts"),
-        "timestamp": datetime.now().isoformat(timespec='seconds')
-    }
+    username = session.get("username", "anonymous")
 
-    print("📄 case_data:", case_data)
-    print("👤 username:", username)
+    case_data = request.form.to_dict()
 
-    DataManager.save_user_case(username, case_data)
+    #DataManager.save_case_with_sequence(username, case_data)
+    flash(str(DataManager.my(username, case_data)), 'success')
 
-    flash('התיק נוסף בהצלחה', 'success')
+    #flash('התיק נוסף בהצלחה', 'success')
     return render_template("base_dashboard.html", page='view_case')
 
 

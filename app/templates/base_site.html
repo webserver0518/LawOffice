@@ -29,8 +29,8 @@
           <a class="nav-link" data-type="site" data-page="home"  href="#">🏠 דף הבית</a>
           <a class="nav-link" data-type="site" data-page="about" href="#">ℹ️ אודות</a>
           {% if session.get('logged_in') %}
-          <a class="nav-link" href="{{ url_for('base_dashboard') }}">📋 דשבורד</a>
-          <a class="nav-link" data-type="site" data-clear="true" href="{{ url_for('logout') }}">🚪 התנתקות</a>
+          <a class="nav-link" href="{{ url_for('client.base_dashboard') }}">📋 דשבורד</a>
+          <a class="nav-link" data-type="site" data-clear="true" href="{{ url_for('site.logout') }}">🚪 התנתקות</a>
           {% else %}
           <a class="nav-link" data-type="site" data-page="login" href="#">🔐 התחברות</a>
           {% endif %}

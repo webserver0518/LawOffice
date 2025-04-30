@@ -1,6 +1,8 @@
-from flask import Blueprint, render_template, redirect, url_for, session, flash, request
+from flask import Blueprint, render_template, redirect, url_for, session, flash, request, jsonify
 from app.utils.user_managment import UserManager
+from app.utils.data_managment import DataManager
 import uuid
+
 
 site_bp = Blueprint('site', __name__)
 
@@ -25,14 +27,14 @@ def login():
 
         if result == "success":
             session['logged_in'] = True
-            session['user'] = username
+            session['username'] = username
             session_id = str(uuid.uuid4())
             session['session_id'] = session_id
             session['user_type'] = 'admin' if username == 'admin' else 'client'
 
             UserManager.record_login(username, session_id)
 
-            return redirect(url_for('base_dashboard'))
+            return redirect(url_for('client.base_dashboard'))
 
         elif result == "wrong_password":
             flash("הסיסמה שגויה", "danger")
@@ -61,3 +63,10 @@ def load_about():
 @site_bp.route('/load_home')
 def load_home():
     return render_template('site_components/home.html')
+
+
+
+@site_bp.route("/api/clients")
+def get_clients():
+    clients = DataManager.load_json("clients", subfolder="system") or []
+    return jsonify(clients)

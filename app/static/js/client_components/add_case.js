@@ -9,22 +9,18 @@ window.init_add_case = function() {
   initCategoryAutocomplete();
 };
 
-/* עוטפים במיידי – לא מחכים ל-DOMContentLoaded */
 (() => {
 
-  /* נחשף ל־window כדי ש-base_dashboard.js יוכל לקרוא */
   window.initFileUploader = function () {
 
-    /* לא לרוץ אם הדף הנוכחי לא מכיל drop-area */
     const dropArea  = document.getElementById('drop-area');
     if (!dropArea || window.__fileUploaderReady) return;
 
-    window.__fileUploaderReady = true;   // דגל שנאתחל פעם אחת
+    window.__fileUploaderReady = true;   
     const pickInput = document.getElementById('fileElem');
     const tbody     = document.querySelector('#fileTable tbody');
     const form      = document.getElementById('upload-form');
 
-    /* יצירת הקלט האמתי */
     let realInput = document.getElementById('realFileInput');
     if (!realInput) {
       realInput          = document.createElement('input');
@@ -39,7 +35,7 @@ window.init_add_case = function() {
     const dt        = new DataTransfer();
     const nameCount = {};
 
-    //const stop = e => { e.preventDefault(); e.stopPropagation(); };
+    const stop = e => { e.preventDefault(); e.stopPropagation(); };
     
     ['dragenter','dragover','dragleave','drop'].forEach(ev =>
       window.addEventListener(ev, stop, false));
@@ -98,7 +94,6 @@ window.init_add_case = function() {
 })();
 
 
-
 window.initAccordionSections = function () {
   const headers = document.querySelectorAll(".section-header");
 
@@ -151,8 +146,6 @@ window.initAccordionSections = function () {
     });
   });
 };
-
-
 
 
 window.initCaseFormPreview = function () {
@@ -225,12 +218,6 @@ window.initCaseFormPreview = function () {
 };
 
 
-
-
-
-
-
-
 window.initClientAutocomplete = async function () {
   const input = document.getElementById("client-name-input");
   const suggestions = document.getElementById("client-suggestions");
@@ -240,8 +227,8 @@ window.initClientAutocomplete = async function () {
   let clients = [];
 
   try {
-    const res = await fetch("/static/data/clients.json");
-    clients = await res.json();
+    const res = await fetch("/api/clients");
+    const clients = await res.json();
     console.log("לקוחות נטענו:", clients);
   } catch (err) {
     console.error("שגיאה בטעינת קובץ לקוחות:", err);
@@ -438,4 +425,3 @@ window.initCategoryAutocomplete = function () {
     }
   });
 };
-
