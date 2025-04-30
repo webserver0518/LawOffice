@@ -1,17 +1,33 @@
-# Ignore Python virtual environment
-venv/
-
-# Byte-compiled / cache
+# קבצי סביבת פייתון
 __pycache__/
 *.py[cod]
+*.pyo
+*.pyd
 
-# Editor files
-*.swp
-*.swo
-*.sublime-project
-*.sublime-workspace
+# סביבה וירטואלית
+venv/
+env/
+.venv/
+ENV/
+
+# קבצים רגישים
+.env
+*.env
+
+# קבצי מערכת
+.DS_Store
+Thumbs.db
+
+# קבצי לוג/פלט
+*.log
+*.bak
+
+# קבצי IDE (VSCode, PyCharm וכו')
 .vscode/
 .idea/
 
-# Logs
-*.log
+# קבצי pip
+pip-log.txt
+
+# קבצי דיבוג
+*.swp
