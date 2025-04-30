@@ -1,5 +1,9 @@
+import os
 from flask import Flask
 from app.config import DevelopmentConfig, ProductionConfig
+
+template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+static_dir = os.path.join(os.path.dirname(__file__), 'static')
 
 def create_app(env='development'):
     if env == 'production':
@@ -7,10 +11,9 @@ def create_app(env='development'):
     else:
         config_class = DevelopmentConfig
 
-    app = Flask(__name__)
+    app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
     app.config.from_object(config_class)
 
-    # Blueprints
     from .routes.site import site_bp
     from .routes.admin import admin_bp
     from .routes.client import client_bp
