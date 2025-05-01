@@ -1,6 +1,11 @@
-/* static/js/admin_components/user_management.js */
+/* static/js/admin_components/users_management.js */
+
+window.init_users_management = function() {
+  initUserForm();
+};
 
 window.initUserForm = function () {
+  console.log("initUserForm called")
   const form = document.getElementById('addUserForm');
   if (form) {
     form.addEventListener('submit', async e => {
@@ -8,10 +13,10 @@ window.initUserForm = function () {
       const formData = new FormData(form);
       formData.append('action', 'add');
 
-      const res = await fetch('/user_managment', { method: 'POST', body: formData });
+      const res = await fetch('/users_managment', { method: 'POST', body: formData });
       if (res.ok) {
-        showToast("✅ המשתמש נוסף");
-        loadDynamicContent('/load_user_management');
+        showToast("✅ המשתמש נוסף", "success");
+        loadContent(page='users_management', force=true, type='admin');
       } else if (res.status === 409) {
         alert("⚠️ המשתמש כבר קיים");
       } else {
@@ -28,11 +33,11 @@ window.updateUser = function (event, username) {
   formData.append('action', 'update');
   formData.append('username', username);
 
-  fetch('/user_managment', { method: 'POST', body: formData })
+  fetch('/users_managment', { method: 'POST', body: formData })
     .then(r => {
       if (r.ok) {
-        showToast("✅ הסיסמה עודכנה");
-        loadDynamicContent('/load_user_management');
+        showToast("✅ הסיסמה עודכנה", "success");
+        loadContent(page='users_management', force=true, type='admin');
       } else alert("❌ שגיאה בעדכון");
     });
 };
@@ -44,11 +49,11 @@ window.deleteUser = function (username) {
   fd.append('action', 'delete');
   fd.append('username', username);
 
-  fetch('/user_managment', { method: 'POST', body: fd })
+  fetch('/users_managment', { method: 'POST', body: fd })
     .then(r => {
       if (r.ok) {
-        showToast("✅ המשתמש נמחק");
-        loadDynamicContent('/load_user_management');
+        showToast("✅ המשתמש נמחק", "success");
+        loadContent(page='users_management', force=true, type='admin');
       } else alert("❌ שגיאה במחיקה");
     });
 };

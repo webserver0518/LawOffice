@@ -13,6 +13,34 @@ const CLIENT_DEFAULT = 'cases_birds_view';
 
 const userType   = document.getElementById('user-info').dataset.userType;
 
+window.showToast = function(message, type = 'info') {
+  const container = document.getElementById('dynamic-toast-container');
+  if (!container) return;
+
+  const toastEl = document.createElement('div');
+  toastEl.className = `toast align-items-center text-white bg-${type} border-0`;
+  toastEl.setAttribute('role', 'alert');
+  toastEl.setAttribute('aria-live', 'assertive');
+  toastEl.setAttribute('aria-atomic', 'true');
+
+  toastEl.innerHTML = `
+    <div class="d-flex">
+      <div class="toast-body text-center w-100">${message}</div>
+    </div>
+  `;
+
+  container.appendChild(toastEl);
+
+  const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+  toast.show();
+
+  // הסרה אוטומטית לאחר סיום
+  toastEl.addEventListener('hidden.bs.toast', () => {
+    toastEl.remove();
+  });
+};
+
+
 /* ─────────── 3. highlight ─────────── */
 function highlightInSidebar(link, sidebar){
   document.querySelectorAll('.' + sidebar + ' a').forEach(a=>a.classList.remove('active'));
@@ -65,9 +93,10 @@ window.addEventListener('DOMContentLoaded',()=>{
   const targetPage = S.get(current_dashboard_content) || 
                      (userType==='admin' ? ADMIN_DEFAULT : CLIENT_DEFAULT);
 
+
   if(userType==='admin'){
 
-    loadContent(page=targetPage, force=false, type='admin');
+    loadContent(page=targetPage, force=true, type='admin');
 
     /* highlight in sidebar */
     document.querySelectorAll('.sidebar a').forEach(a=>
@@ -88,7 +117,7 @@ window.addEventListener('DOMContentLoaded',()=>{
     }
 
     showSubMenu(type=S.get(current_sub_sidebar), force=true);
-    loadContent(page=targetPage, force=false, type='client'); 
+    loadContent(page=targetPage, force=true, type='client'); 
 
     /* highlight in sidebar */
     document.querySelectorAll('.sidebar a').forEach(a=>
@@ -169,15 +198,14 @@ window.addEventListener('DOMContentLoaded',()=>{
 
 });
 
-
-
-
 /* ─────────── 8. Sidebar (mobile) ─────────── */
 function toggleSidebar(){ 
   document.body.classList.toggle('sidebar-collapsed');
   document.querySelector('.sidebar').classList.toggle('collapsed');
-  document.querySelector('.sub-sidebar').classList.toggle('collapsed');
-}
+
+  if (userType == 'client')
+    document.querySelector('.sub-sidebar').classList.toggle('collapsed');
+  }
 
 /* ─────────── 9. Clock & Date ─────────── */
 function updateDateTime(){

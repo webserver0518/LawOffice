@@ -86,15 +86,9 @@ const Loader = (() => {
   }
 
   /* API ראשי */
-  async function loadPage({
-    pageID,            // 'home' / 'cases_birds_view' …
-    fetchUrl,          // '/load_home' …
-    cssPath,           // '/static/css/…/home.css'
-    jsPath,            // '/static/js/…/home.js'
-    container,         // Element להצגת התוכן
-    forceState = false  // האם לעדכן history
-  }) {
-    if (pageID === currentPage) return;
+  async function loadPage({ pageID, fetchUrl, cssPath, jsPath, container, forceState = false }) 
+  {
+    if (pageID === currentPage && !forceState) return;
 
     /* 1. HTML */
     const html = await fetch(`${fetchUrl}?v=${Date.now()}`)
@@ -133,7 +127,6 @@ const Loader = (() => {
 
 /* ───────── ניקוי SessionStorage ביציאה ───────── */
 function clearStorageAndLogout(e) {
-  console.log("from loader");
   e.preventDefault();
   [current_site_content, current_dashboard_content, current_sub_sidebar].forEach(S.del);
   location.href = e.target.href;

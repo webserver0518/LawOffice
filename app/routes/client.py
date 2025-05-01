@@ -1,11 +1,6 @@
-from flask import Blueprint, render_template, redirect, url_for, session, flash, request
+from flask import Blueprint, render_template, redirect, url_for, session, flash, request, jsonify
 from app.utils.data_managment import DataManager
 from app.utils.legal_case_classes import GreetingHelper
-from datetime import datetime
-
-import os
-from werkzeug.utils import secure_filename
-import uuid
 
 
 client_bp = Blueprint('client', __name__)
@@ -20,23 +15,7 @@ def base_dashboard():
     return render_template('base_dashboard.html',
                            greeting=GreetingHelper.get_greeting(),
                            current_time=GreetingHelper.get_current_time(),
-                           user=session.get('user'))
-
-@client_bp.route('/client_create', methods=['POST'])
-def client_create():
-    if not session.get('logged_in'):
-        flash("⛔ אין הרשאה", "danger")
-        return redirect(url_for('site.home'))
-
-    username = session.get("username", "anonymous")
-
-    case_data = request.form.to_dict()
-
-    #DataManager.save_case_with_sequence(username, case_data)
-    flash(str(DataManager.my(username, case_data)), 'success')
-
-    #flash('התיק נוסף בהצלחה', 'success')
-    return render_template("base_dashboard.html", page='view_case')
+                           user=session.get('username'))
 
 
 # dashboard loaders
@@ -127,6 +106,29 @@ def load_view_client():
 
     return render_template("client_components/view_client.html")
 
+@client_bp.route("/get_clients")
+def get_clients():
+    if not session.get('logged_in'):
+        flash("⛔ אין הרשאה", "danger")
+        return redirect(url_for('site.home'))
+
+    clients = DataManager.load_json("clients") or []
+    return jsonify(clients)
+
+@client_bp.route('/client_create', methods=['POST'])
+def client_create():
+    if not session.get('logged_in'):
+        flash("⛔ אין הרשאה", "danger")
+        return redirect(url_for('site.home'))
+
+    username = session.get("username", "anonymous")
+
+    case_data = request.form.to_dict()
+
+    DataManager.save_case_with_sequence(username, case_data)
+
+    flash('התיק נוסף בהצלחה', 'success')
+    return render_template("base_dashboard.html", page='view_case')
 
 
 @client_bp.route('/load_attendency_birds_view')

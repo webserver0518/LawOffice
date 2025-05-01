@@ -1,6 +1,5 @@
 /* static/js/client_components/add_case.js */
 
-
 window.init_add_case = function() {
   initFileUploader();
   initAccordionSections();
@@ -185,16 +184,16 @@ window.initCaseFormPreview = function () {
         localStorage.setItem("activeMainMenuText", "כל התיקים");
 
         // 🟩 טען תפריט משנה מחדש
-        await showSubMenu("all_cases");
+        showSubMenu("all_cases");
 
         // ⬇️ טען את תיקים פעילים
-        loadDynamicContent("/load_active_cases");
+        loadContent(page="active_cases", force=true, type='client');
 
         // ✨ הדגש את תת-הכפתור של תיקים פעילים
         const subLinks = document.querySelectorAll('.sub-sidebar a');
         subLinks.forEach(link => {
           if (link.textContent.trim() === "תיקים פעילים") {
-            highlightSubMenu(link);
+            highlightInSidebar(link, 'sub-sidebar');
           }
         });
 
@@ -202,7 +201,7 @@ window.initCaseFormPreview = function () {
         const mainLinks = document.querySelectorAll('.sidebar a');
         mainLinks.forEach(link => {
           if (link.textContent.trim() === "כל התיקים") {
-            highlightMainMenu(link);
+            highlightInSidebar(link, 'sidebar');
           }
         });
 
@@ -227,9 +226,9 @@ window.initClientAutocomplete = async function () {
   let clients = [];
 
   try {
-    const res = await fetch("/api/clients");
-    const clients = await res.json();
-    console.log("לקוחות נטענו:", clients);
+    const res = await fetch("get_clients");
+    clients = await res.json();
+    console.log("לקוחות נטענו:", clients[0], "נראה רק את הראשון...");
   } catch (err) {
     console.error("שגיאה בטעינת קובץ לקוחות:", err);
     return;
@@ -395,7 +394,7 @@ window.initCategoryAutocomplete = function () {
 
     const matches = categories.filter(cat =>
       cat.includes(value)
-    ).slice(0, 50); // מקסימום שנציג
+    ).slice(0, 50);
 
     matches.forEach(cat => {
       const li = document.createElement("li");

@@ -6,7 +6,7 @@
   },
   {
     "username": "matan",
-    "password": "scrypt:32768:8:1$Wl5dkpzq7qgHHOpJ$b38b1e7bc0682a84e6130875b1f91af7b7357556d513037a1516b1681424ecb9d329a1dd2771881169f5fb2a242e9162414bb39f29143edc9ea12d595b58d1c0",
+    "password": "scrypt:32768:8:1$24NrOKMdcYlhis2I$a09e5c096800020b980c3e28ab66767587746762926a406ae841cee2d8971e1c08477628e00c3618c095e0f007231afc8dcedba09b6dc7be2fc27ec1365a4127",
     "created_at": "2025-04-19 21:41"
   },
   {
@@ -21,7 +21,7 @@
   },
   {
     "username": "ohad",
-    "password": "scrypt:32768:8:1$3iMoaKQeGF4aCHrL$2cee51a81be7fe4ad5e371030e2b848be87394f0668f565c5fcde806cc50ac50a8b6abe3d278840fda4826afe269b7847462be3fe116184bf3fd6ad5cb8cf48d",
+    "password": "scrypt:32768:8:1$mVQ3TslZuXclYYf1$bf15a101741b424a5902ed0caaf914e6021b6107e7ca77e853af9286fd3e63f1076d9726b253be64ec5028e1a37fc91a9397d95674333ec4ebc9886ed2ca3fb2",
     "created_at": "2025-04-25 17:22"
   }
 ]

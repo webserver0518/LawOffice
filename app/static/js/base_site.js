@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const page = link.dataset.page;
     if (page) {
-      e.preventDefault();       // רק אם יש data-page — זה SPA
+      e.preventDefault();
       navigateTo(link, force=true);
       return;
     }
@@ -39,12 +39,5 @@ window.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // אחרת — אין page → נותנים לדפדפן להמשיך (למשל לוגאאוט רגיל)
   });
-});
-
-/* back / forward */
-window.addEventListener('popstate', () => {
-  const p = new URL(location.href).searchParams.get('page') || DEFAULT_PAGE;
-  loadSiteContent(p, false);
 });

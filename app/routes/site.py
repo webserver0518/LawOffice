@@ -1,6 +1,5 @@
-from flask import Blueprint, render_template, redirect, url_for, session, flash, request, jsonify
+from flask import Blueprint, render_template, redirect, url_for, session, flash, request
 from app.utils.user_managment import UserManager
-from app.utils.data_managment import DataManager
 import uuid
 
 
@@ -66,7 +65,4 @@ def load_home():
 
 
 
-@site_bp.route("/api/clients")
-def get_clients():
-    clients = DataManager.load_json("clients", subfolder="system") or []
-    return jsonify(clients)
+

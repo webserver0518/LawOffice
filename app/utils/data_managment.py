@@ -3,23 +3,25 @@ import json
 from werkzeug.utils import secure_filename
 
 # נתיבים מרכזיים
-BASE_SYSTEM_DATA = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "data"))
-BASE_USER_UPLOADS = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "uploads"))
+PTAH_LAWOFFICE      = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))  # LawOffice
+PTAH_APP            = os.path.join(PTAH_LAWOFFICE, "app")                                   # LawOffice/app
+BASE_DATA           = os.path.join(PTAH_APP, "data")                                        # LawOffice/app/data
+BASE_UPLOADS        = os.path.join(PTAH_LAWOFFICE, "uploads")                               # LawOffice/uploads
+
+print(PTAH_LAWOFFICE)
+print(PTAH_APP)
+print(BASE_DATA)
+print(BASE_UPLOADS)
+
 
 class DataManager:
 
     system_files = ["users", "logins"]
 
     @staticmethod
-    def load_json(file_name, subfolder="system"):
-        if subfolder == "system":
-            folder = BASE_SYSTEM_DATA
-            if file_name not in DataManager.system_files:
-                return None
-        else:
-            folder = os.path.join(BASE_USER_UPLOADS, secure_filename(subfolder))
+    def load_json(file_name):
 
-        file_path = os.path.join(folder, f"{file_name}.json")
+        file_path = os.path.join(BASE_DATA, f"{file_name}.json")
         if not os.path.exists(file_path):
             return None
 
@@ -28,18 +30,11 @@ class DataManager:
                 return json.load(f)
             except json.JSONDecodeError:
                 return None
-
+            
     @staticmethod
-    def save_json(file_name, data, subfolder="system"):
-        if subfolder == "system":
-            folder = BASE_SYSTEM_DATA
-            if file_name not in DataManager.system_files:
-                return None
-        else:
-            folder = os.path.join(BASE_USER_UPLOADS, secure_filename(subfolder))
-
-        os.makedirs(folder, exist_ok=True)
-        file_path = os.path.join(folder, f"{file_name}.json")
+    def save_json(file_name, data):
+       
+        file_path = os.path.join(BASE_DATA, f"{file_name}.json")
 
         with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
@@ -47,14 +42,18 @@ class DataManager:
     @staticmethod
     def get_user_cases(username):
         safe_name = secure_filename(username)
-        return DataManager.load_json("cases_index", subfolder=safe_name) or []
+        return DataManager.load_json("cases_index") or []
 
     @staticmethod
     def save_case_with_sequence(username, case_data):
         safe_name = secure_filename(username)
-        user_dir = os.path.join(BASE_USER_UPLOADS, safe_name)
+        user_dir = os.path.join(BASE_UPLOADS, safe_name)
+        print('safe_name: ' + safe_name)
+        print('user_dir: ' + user_dir)
+        print('case_data: ' + str(case_data))
+        
         os.makedirs(user_dir, exist_ok=True)
-
+        """
         index_path = os.path.join(user_dir, "cases_index.json")
         cases_index = []
 
@@ -94,3 +93,4 @@ class DataManager:
 
         with open(index_path, 'w', encoding='utf-8') as f:
             json.dump(cases_index, f, ensure_ascii=False, indent=2)
+        """

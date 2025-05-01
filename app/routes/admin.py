@@ -6,7 +6,7 @@ admin_bp = Blueprint('admin', __name__)
 
 @admin_bp.route('/users_managment', methods=['POST'])
 def users_managment():
-    if not session.get('logged_in') or session.get('user') != 'admin':
+    if not session.get('logged_in') or session.get('user_type') != 'admin':
         flash("⛔ אין הרשאה", "danger")
         return redirect(url_for('site.home'))
 
@@ -29,7 +29,8 @@ def users_managment():
 
 @admin_bp.route('/load_users_management')
 def load_users_management():
-    if not session.get('logged_in') or session.get('user') != 'admin':
+    print("🔄 load_users_management called")
+    if not session.get('logged_in') or session.get('user_type') != 'admin':
         flash("⛔ אין הרשאה", "danger")
         return redirect(url_for('site.home'))
     
@@ -38,7 +39,7 @@ def load_users_management():
 
 @admin_bp.route('/load_users_statistics')
 def load_users_statistics():
-    if not session.get('logged_in') or session.get('user') != 'admin':
+    if not session.get('logged_in') or session.get('user_type') != 'admin':
         flash("⛔ אין הרשאה", "danger")
         return redirect(url_for('site.home'))
 
@@ -79,7 +80,7 @@ def load_users_statistics():
 
 @admin_bp.route('/load_server_info')
 def load_server_info():
-    if not session.get('logged_in') or session.get('user') != 'admin':
+    if not session.get('logged_in') or session.get('user_type') != 'admin':
         flash("⛔ אין הרשאה", "danger")
         return redirect(url_for('site.home'))
 
