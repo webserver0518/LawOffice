@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for, session, flash, request, jsonify
 from app.utils.data_managment import DataManager
 from app.utils.legal_case_classes import GreetingHelper
+from app.utils.s3_managment import S3Manager
 
 
 client_bp = Blueprint('client', __name__)
@@ -112,7 +113,7 @@ def get_clients():
         flash("⛔ אין הרשאה", "danger")
         return redirect(url_for('site.home'))
 
-    clients = DataManager.load_json("clients") or []
+    clients = DataManager.load_json_from_data("clients") or []
     return jsonify(clients)
 
 @client_bp.route('/client_create', methods=['POST'])
@@ -121,11 +122,34 @@ def client_create():
         flash("⛔ אין הרשאה", "danger")
         return redirect(url_for('site.home'))
 
-    username = session.get("username", "anonymous")
+    username = session.get("username")
 
     case_data = request.form.to_dict()
 
-    DataManager.save_case_with_sequence(username, case_data)
+    index_uploads_name = "index"
+    index_uploads_file = DataManager.load_json_from_data_indexs(index_uploads_name)
+    index_uploads_file['num_of_cases'] += 1
+    case_serial_number = index_uploads_file['num_of_cases']
+    DataManager.save_json_to_data_indexs(index_uploads_name, index_uploads_file)
+
+
+    index_username_name = "index-" + username
+
+    index_username_file = DataManager.load_json_from_data_indexs(index_username_name)
+    index_username_file[case_serial_number] = case_data['case_title']
+    DataManager.save_json_to_data_indexs(index_username_name, index_username_file)
+
+    print(case_data)
+
+    files = [fs for fs in request.files.getlist('files') if fs.filename]
+    print('len(files): ' + str(len(files)))
+
+    for fs in files:
+        if not fs or fs.filename == '':
+            continue
+        dest_key = f"{username}/{case_serial_number}/{fs.filename}"
+        print(dest_key)
+        S3Manager.upload(fs, dest_key)  
 
     flash('התיק נוסף בהצלחה', 'success')
     return render_template("base_dashboard.html", page='view_case')
@@ -138,4 +162,7 @@ def load_attendency_birds_view():
         return redirect(url_for('site.home'))
     
     return render_template('client_components/attendency_birds_view.html')
+
+
+
 

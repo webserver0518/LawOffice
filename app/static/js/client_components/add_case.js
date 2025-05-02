@@ -18,7 +18,7 @@ window.init_add_case = function() {
     window.__fileUploaderReady = true;   
     const pickInput = document.getElementById('fileElem');
     const tbody     = document.querySelector('#fileTable tbody');
-    const form      = document.getElementById('upload-form');
+    const form      = document.getElementById('new-case-form');
 
     let realInput = document.getElementById('realFileInput');
     if (!realInput) {
@@ -37,8 +37,9 @@ window.init_add_case = function() {
     const stop = e => { e.preventDefault(); e.stopPropagation(); };
     
     ['dragenter','dragover','dragleave','drop'].forEach(ev =>
-      window.addEventListener(ev, stop, false));
+      dropArea.addEventListener(ev, stop, false));
 
+    dropArea.addEventListener('click', () => pickInput.click());
     dropArea.addEventListener('dragover', () => dropArea.classList.add('highlight'));
     dropArea.addEventListener('dragleave',() => dropArea.classList.remove('highlight'));
 
@@ -51,7 +52,10 @@ window.init_add_case = function() {
 
     /*  הוספת קבצים  */
     function addFiles(list){
-      [...list].forEach(f => { dt.items.add(f); addRow(f); });
+      [...list].forEach(f => {
+        dt.items.add(f);
+        addRow(f);
+      });
       realInput.files = dt.files;
       pickInput.value = '';
     }
@@ -88,6 +92,13 @@ window.init_add_case = function() {
       };
       tbody.appendChild(tr);
     }
+
+    /* ---------- DEBUG ---------- */
+    form.addEventListener('submit', () => {                      // 🆕 ADDED
+      const fd = new FormData(form);                             // 🆕 ADDED
+      console.log('[files]', fd.getAll('files').map(f => f.name)); // 🆕 ADDED
+    });  
+
   };
 
 })();

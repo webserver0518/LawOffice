@@ -13,6 +13,12 @@ class Config:
     MAIL_PASSWORD = os.getenv("MAIL_PASSWORD", "yourpassword")
 
 
+    AWS_REGION            = os.getenv("AWS_REGION", "eu-north-1")     # <<< ADDED >>>
+    S3_BUCKET             = os.getenv("S3_BUCKET",  "legi-bit-uploads")# <<< ADDED >>>
+    AWS_ACCESS_KEY_ID     = os.getenv("AWS_ACCESS_KEY_ID")            # <<< ADDED >>>
+    AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")        # <<< ADDED >>>
+
+
 class DevelopmentConfig(Config):
     """הגדרות לפיתוח"""
     DEBUG = True

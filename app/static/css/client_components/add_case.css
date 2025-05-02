@@ -93,6 +93,7 @@
   }
   
   .add-case-page #drop-area.highlight {
+    border: 2px dashed #0d6efd !important;
     background: #e1f5fe;
   }
   

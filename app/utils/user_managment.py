@@ -14,17 +14,17 @@ class UserManager:
     # ---------- CRUD משתמשים ----------
     @classmethod
     def load_users(cls):
-        return DataManager.load_json("users") or []
+        return DataManager.load_json_from_data("users") or []
 
     @classmethod
     def save_users(cls, users):
-        DataManager.save_json("users", users)
+        DataManager.save_json_to_data("users", users)
 
     @classmethod
     def add_user(cls, username: str, password: str) -> bool:
         users = cls.load_users()
         if any(u["username"] == username for u in users):
-            return False                                  # כבר קיים
+            return False
         users.append({
             "username": username.strip(),
             "password": generate_password_hash(password.strip()),
@@ -64,11 +64,11 @@ class UserManager:
     # ---------- לוג-אין / לוג-אאוט ----------
     @classmethod
     def load_logins(cls):
-        return DataManager.load_json("logins") or {}
+        return DataManager.load_json_from_data("logins") or {}
 
     @classmethod
     def save_logins(cls, logins):
-        DataManager.save_json("logins", logins)
+        DataManager.save_json_to_data("logins", logins)
 
     @classmethod
     def record_login(cls, username: str, session_id: str):
