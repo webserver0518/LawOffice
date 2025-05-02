@@ -90,6 +90,14 @@ function showSubMenu(type, force=false){
 /* ─────────── 6. Startup ─────────── */
 window.addEventListener('DOMContentLoaded',()=>{
 
+  fetch("/get_office_name")
+    .then(response => response.text())
+    .then(officeName => {
+        document.getElementById('office_name').textContent = officeName;
+    })
+    .catch(error => console.error("Error:", error));
+    
+
   const targetPage = S.get(current_dashboard_content) || 
                      (userType==='admin' ? ADMIN_DEFAULT : CLIENT_DEFAULT);
 

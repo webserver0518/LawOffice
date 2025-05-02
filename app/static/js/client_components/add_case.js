@@ -13,9 +13,9 @@ window.init_add_case = function() {
   window.initFileUploader = function () {
 
     const dropArea  = document.getElementById('drop-area');
-    if (!dropArea || window.__fileUploaderReady) return;
+    if (!dropArea || dropArea.dataset.ready) return;
+    dropArea.dataset.ready = "1";
 
-    window.__fileUploaderReady = true;   
     const pickInput = document.getElementById('fileElem');
     const tbody     = document.querySelector('#fileTable tbody');
     const form      = document.getElementById('new-case-form');

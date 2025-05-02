@@ -14,26 +14,26 @@ class DataManager:
     system_files = ["users", "logins"]
 
     @staticmethod
-    def load_json_from_path(path, file_name):
+    def load_json_from_path(path, file_name, on_fail_return = None):
 
         file_path = os.path.join(path, f"{file_name}.json")
         if not os.path.exists(file_path):
-            return None
+            return on_fail_return
 
         with open(file_path, 'r', encoding='utf-8') as f:
             try:
                 return json.load(f)
             except:
                 print('Error from data managment')
-                return None
+                return on_fail_return
 
     @staticmethod
-    def load_json_from_data(file_name):
-        return DataManager.load_json_from_path(BASE_DATA, file_name)
+    def load_json_from_data(file_name, on_fail_return = None):
+        return DataManager.load_json_from_path(BASE_DATA, file_name, on_fail_return)
     
     @staticmethod
-    def load_json_from_data_indexs(file_name):
-        return DataManager.load_json_from_path(BASE_INDEXS, file_name)
+    def load_json_from_data_indexs(file_name, on_fail_return = None):
+        return DataManager.load_json_from_path(BASE_INDEXS, file_name, on_fail_return)
     
     @staticmethod
     def save_json_to_path(path, file_name, data):

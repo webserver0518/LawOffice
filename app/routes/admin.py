@@ -11,15 +11,18 @@ def users_managment():
         return redirect(url_for('site.home'))
 
     action = request.form.get('action')
+    office_name = request.form.get('office_name')
     username = request.form.get('username')
     password = request.form.get('password')
 
     if action == 'add':
-        success = UserManager.add_user(username, password)
+        success = UserManager.add_user(office_name, username, password)
         if not success:
             return 'Conflict', 409  # user exists
+    
     elif action == 'update':
         UserManager.update_password(username, password)
+    
     elif action == 'delete':
         UserManager.delete_user(username)
 

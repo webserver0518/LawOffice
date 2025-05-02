@@ -19,13 +19,13 @@ def login():
     username = ''
     if request.method == 'POST':
         username = request.form['username'].strip()
-        pwd = request.form['password'].strip()
-        local_time = request.form.get('local_time')
+        password = request.form['password'].strip()
 
-        result = UserManager.authenticate(username, pwd)
+        result = UserManager.authenticate(username, password)
 
         if result == "success":
             session['logged_in'] = True
+            session['office_name'] = UserManager.get_office_name(username)
             session['username'] = username
             session_id = str(uuid.uuid4())
             session['session_id'] = session_id

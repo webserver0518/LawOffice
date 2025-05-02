@@ -14,18 +14,19 @@ class UserManager:
     # ---------- CRUD משתמשים ----------
     @classmethod
     def load_users(cls):
-        return DataManager.load_json_from_data("users") or []
+        return DataManager.load_json_from_data("users", on_fail_return=[])
 
     @classmethod
     def save_users(cls, users):
         DataManager.save_json_to_data("users", users)
 
     @classmethod
-    def add_user(cls, username: str, password: str) -> bool:
+    def add_user(cls, office_name: str, username: str, password: str) -> bool:
         users = cls.load_users()
         if any(u["username"] == username for u in users):
             return False
         users.append({
+            "office_name" : office_name.strip(),
             "username": username.strip(),
             "password": generate_password_hash(password.strip()),
             "created_at": cls._now()
@@ -51,12 +52,19 @@ class UserManager:
         logins.pop(username, None)
         cls.save_logins(logins)
 
+
+    @classmethod
+    def get_office_name(cls, username: str) -> str: 
+        for user in cls.load_users():
+            if user["username"] == username:
+                return user["office_name"]
+
     # ---------- אימות ----------
     @classmethod
     def authenticate(cls, username: str, password: str) -> str:
         for user in cls.load_users():
-            if user["username"] == username.strip():
-                if check_password_hash(user["password"], password.strip()):
+            if user["username"] == username:
+                if check_password_hash(user["password"], password):
                     return "success"
                 return "wrong_password"
         return "user_not_found"
@@ -64,7 +72,7 @@ class UserManager:
     # ---------- לוג-אין / לוג-אאוט ----------
     @classmethod
     def load_logins(cls):
-        return DataManager.load_json_from_data("logins") or {}
+        return DataManager.load_json_from_data("logins", on_fail_return={})
 
     @classmethod
     def save_logins(cls, logins):
@@ -88,3 +96,7 @@ class UserManager:
                 sess["logout"] = cls._now()
                 break
         cls.save_logins(logins)
+
+
+
+

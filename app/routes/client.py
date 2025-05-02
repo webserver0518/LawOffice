@@ -18,6 +18,9 @@ def base_dashboard():
                            current_time=GreetingHelper.get_current_time(),
                            user=session.get('username'))
 
+@client_bp.route('/get_office_name')
+def get_office_name():
+    return session.get('office_name')
 
 # dashboard loaders
 
@@ -28,6 +31,7 @@ def load_birds_view():
         return redirect(url_for('site.home'))
     
     return render_template('client_components/birds_view.html')
+
 
 
 @client_bp.route('/load_cases_birds_view')
@@ -113,7 +117,7 @@ def get_clients():
         flash("⛔ אין הרשאה", "danger")
         return redirect(url_for('site.home'))
 
-    clients = DataManager.load_json_from_data("clients") or []
+    clients = DataManager.load_json_from_data("clients", on_fail_return=[])
     return jsonify(clients)
 
 @client_bp.route('/client_create', methods=['POST'])
@@ -122,22 +126,22 @@ def client_create():
         flash("⛔ אין הרשאה", "danger")
         return redirect(url_for('site.home'))
 
-    username = session.get("username")
+    office_name = session.get("office_name")
 
     case_data = request.form.to_dict()
 
     index_uploads_name = "index"
-    index_uploads_file = DataManager.load_json_from_data_indexs(index_uploads_name)
+    index_uploads_file = DataManager.load_json_from_data_indexs(index_uploads_name, on_fail_return={})
     index_uploads_file['num_of_cases'] += 1
     case_serial_number = index_uploads_file['num_of_cases']
     DataManager.save_json_to_data_indexs(index_uploads_name, index_uploads_file)
 
 
-    index_username_name = "index-" + username
+    index_officename_name = "index-" + office_name
 
-    index_username_file = DataManager.load_json_from_data_indexs(index_username_name)
-    index_username_file[case_serial_number] = case_data['case_title']
-    DataManager.save_json_to_data_indexs(index_username_name, index_username_file)
+    index_officename_file = DataManager.load_json_from_data_indexs(index_officename_name, on_fail_return={})
+    index_officename_file[case_serial_number] = case_data['case_title']
+    DataManager.save_json_to_data_indexs(index_officename_name, index_officename_file)
 
     print(case_data)
 
@@ -147,12 +151,32 @@ def client_create():
     for fs in files:
         if not fs or fs.filename == '':
             continue
-        dest_key = f"{username}/{case_serial_number}/{fs.filename}"
+        dest_key = f"{office_name}/{case_serial_number}/{fs.filename}"
         print(dest_key)
         S3Manager.upload(fs, dest_key)  
 
     flash('התיק נוסף בהצלחה', 'success')
     return render_template("base_dashboard.html", page='view_case')
+
+@client_bp.route('/get_active_cases')
+def get_active_cases():
+    if not session.get('logged_in'):
+        flash("⛔ אין הרשאה", "danger")
+        return redirect(url_for('site.home'))
+
+    office_name = session.get('office_name')
+    index_name = f"index-{office_name}"
+
+    # {'1': 'תיק עבודה', '2': 'תביעה אזרחית', ...}
+    idx = DataManager.load_json_from_data_indexs(index_name, on_fail_return={})
+
+    cases = [
+        {"serial": int(sn), "title": title}
+        for sn, title in idx.items()
+    ]
+    cases.sort(key=lambda c: c["serial"])
+
+    return jsonify(cases)
 
 
 @client_bp.route('/load_attendency_birds_view')

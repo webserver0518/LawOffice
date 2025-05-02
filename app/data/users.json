@@ -1,27 +1,38 @@
 [
   {
+    "office_name": "admin",
     "username": "admin",
     "password": "scrypt:32768:8:1$WKzKX6J6UhKZmZbq$f3c178017844512d439ed85c3d088b42dd9d3d4b2fa642422441c3e87d6d49e42eedfcef39f5e7e84d1d00b8f7ec7b3a2f78b8c7104e6f7e6d1838e967eeacd4",
     "created_at": "2025-04-19 21:41"
   },
   {
+    "office_name": "legibit",
     "username": "matan",
     "password": "scrypt:32768:8:1$24NrOKMdcYlhis2I$a09e5c096800020b980c3e28ab66767587746762926a406ae841cee2d8971e1c08477628e00c3618c095e0f007231afc8dcedba09b6dc7be2fc27ec1365a4127",
     "created_at": "2025-04-19 21:41"
   },
   {
+    "office_name": "legibit",
     "username": "israel",
     "password": "scrypt:32768:8:1$OZc6Ij3Ly0Z51IN8$6382fdba0dda904b9de89df336c857befc056f2f660baf52c94496b12466ccad6f704f3c2443691b9eff1a316344934ea4b8445db120f944bec47a7af37ebba9",
     "created_at": "2025-04-21 21:04"
   },
   {
+    "office_name": "legibit",
     "username": "idan",
     "password": "scrypt:32768:8:1$csWFZ643MiFYZJCz$6d7763d977dff63f4a210b6393c938c050d0733d52594278c2985f002d46c244993896fc9de97ec1f675d7f3d9d5c6a8372b9056eb24fa7abb9235aae56d2341",
     "created_at": "2025-04-25 17:00"
   },
   {
+    "office_name": "legibit",
     "username": "ohad",
     "password": "scrypt:32768:8:1$mVQ3TslZuXclYYf1$bf15a101741b424a5902ed0caaf914e6021b6107e7ca77e853af9286fd3e63f1076d9726b253be64ec5028e1a37fc91a9397d95674333ec4ebc9886ed2ca3fb2",
     "created_at": "2025-04-25 17:22"
+  },
+  {
+    "office_name": "director",
+    "username": "eli",
+    "password": "scrypt:32768:8:1$5Wu6NhVDGvcBJ6oi$376882a8ecf2c1f0e4a8d3f9f34a7353b9a0b3cfd0945445c8f4d6b38eed8bad9e21896ba4da97866e231cf3833269effa0b5b108fa1f5e660ba34271b2b6b2f",
+    "created_at": "2025-05-02 23:43"
   }
 ]

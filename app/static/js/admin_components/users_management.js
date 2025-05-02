@@ -5,25 +5,26 @@ window.init_users_management = function() {
 };
 
 window.initUserForm = function () {
-  console.log("initUserForm called")
   const form = document.getElementById('addUserForm');
-  if (form) {
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      formData.append('action', 'add');
 
-      const res = await fetch('/users_managment', { method: 'POST', body: formData });
-      if (res.ok) {
-        showToast("✅ המשתמש נוסף", "success");
-        loadContent(page='users_management', force=true, type='admin');
-      } else if (res.status === 409) {
-        alert("⚠️ המשתמש כבר קיים");
-      } else {
-        alert("❌ שגיאה בהוספת המשתמש");
-      }
-    });
-  }
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+    formData.append('action', 'add');
+
+    const res = await fetch('/users_managment', { method: 'POST', body: formData });
+    if (res.ok) {
+      showToast("✅ המשתמש נוסף", "success");
+      loadContent(page='users_management', force=true, type='admin');
+    
+    } else if (res.status === 409) {
+      alert("⚠️ המשתמש כבר קיים");
+    
+    } else {
+      alert("❌ שגיאה בהוספת המשתמש");
+    }
+  });
 };
 
 /* איפוס סיסמה */
@@ -38,6 +39,7 @@ window.updateUser = function (event, username) {
       if (r.ok) {
         showToast("✅ הסיסמה עודכנה", "success");
         loadContent(page='users_management', force=true, type='admin');
+      
       } else alert("❌ שגיאה בעדכון");
     });
 };
@@ -54,6 +56,7 @@ window.deleteUser = function (username) {
       if (r.ok) {
         showToast("✅ המשתמש נמחק", "success");
         loadContent(page='users_management', force=true, type='admin');
+      
       } else alert("❌ שגיאה במחיקה");
     });
 };
