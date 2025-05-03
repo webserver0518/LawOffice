@@ -140,20 +140,16 @@ def client_create():
     index_officename_name = "index-" + office_name
 
     index_officename_file = DataManager.load_json_from_data_indexs(index_officename_name, on_fail_return={})
-    index_officename_file[case_serial_number] = case_data['case_title']
+    index_officename_file[case_serial_number] = case_data
     DataManager.save_json_to_data_indexs(index_officename_name, index_officename_file)
 
-    print(case_data)
-
     files = [fs for fs in request.files.getlist('files') if fs.filename]
-    print('len(files): ' + str(len(files)))
 
     for fs in files:
         if not fs or fs.filename == '':
             continue
         dest_key = f"{office_name}/{case_serial_number}/{fs.filename}"
-        print(dest_key)
-        S3Manager.upload(fs, dest_key)  
+        S3Manager.upload(fs, dest_key)
 
     flash('התיק נוסף בהצלחה', 'success')
     return render_template("base_dashboard.html", page='view_case')
@@ -169,10 +165,16 @@ def get_active_cases():
 
     # {'1': 'תיק עבודה', '2': 'תביעה אזרחית', ...}
     idx = DataManager.load_json_from_data_indexs(index_name, on_fail_return={})
+    print(idx)
 
     cases = [
-        {"serial": int(sn), "title": title}
-        for sn, title in idx.items()
+        {
+         "serial": int(sn),
+         "case_title": case_data["case_title"],
+         "client_name": case_data["client_name"],
+         "category": case_data["category"]
+         }
+        for sn, case_data in idx.items()
     ]
     cases.sort(key=lambda c: c["serial"])
 
