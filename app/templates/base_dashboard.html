@@ -39,9 +39,7 @@
 
   <!-- כפתור ו-Sub-Sidebar עבור משתמש רגיל -->
   <button class="toggle-btn" onclick="toggleSidebar()">☰ תפריט</button>
-  {% if session.get('user_type') == 'client' %}
   <div class="sub-sidebar" id="subMenu"></div>
-  {% endif %}
 
   <!-- תוכן דינמי -->
   <div class="main-content" id="dynamicContent">

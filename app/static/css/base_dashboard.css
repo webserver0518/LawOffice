@@ -90,14 +90,19 @@ body {
 .main-content {
   width: 100%;
   padding: 20px;
-  transition: margin-right 0.3s linear;
+  transition: margin-right 2s linear;
 }
 
 body.sidebar-collapsed .main-content {
   margin-right: 0;
 }
 
-body:not(.sidebar-collapsed) .main-content {
+
+body:not(.sidebar-collapsed) .marginAdmin {
+  margin-right: 130px;
+}
+
+body:not(.sidebar-collapsed) .marginClient {
   margin-right: 260px;
 }
 

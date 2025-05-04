@@ -27,16 +27,10 @@
 
 /* כפתור הוסף – תכלת קבוע, כהה בריחוף */
 .btn-add {
-    background: var(--blue-13);
-    border-color: var(--blue-13);
-    color: #fff
+    padding: 10px 40px !important;
+    font-size: 16px !important;
 }
 
-.btn-add:hover {
-    background: var(--blue-15);
-    border-color: var(--blue-15);
-    color: #fff;
-}
 
 /* ───── טבלה ───── */
 #usersTable {
@@ -46,18 +40,17 @@
 }
 
 #usersTable thead {
-    background: var(--blue-15);
+    background: var(--c1);
     color: #fff;
 }
 
 #usersTable tbody tr {
     background: #fff;
-    transition: background-color .15s ease;
+    transition: background-color .2s ease;
 }
 
 #usersTable tbody tr:hover {
-    background: var(--blue-13);
-    color: #fff;
+    background: #dfe6f9;
 }
 
 #usersTable th,

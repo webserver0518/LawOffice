@@ -6,7 +6,7 @@
       .then(r => r.json())
       .then(rows => {
         if (!Array.isArray(rows) || rows.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="2" class="text-center">אין תיקים פעילים</td></tr>';
+          tbody.innerHTML = '<tr><td colspan="4" class="text-center">אין תיקים פעילים</td></tr>';
           return;
         }
         tbody.innerHTML = rows.map(r =>

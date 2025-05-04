@@ -52,7 +52,6 @@ function showSubMenu(type, force=false){
 
   S.set(current_sub_sidebar, type);
 
-
   const cont = document.getElementById('subMenu');
   if(!cont) return;
   if(!force && cont.dataset.type===type) return;
@@ -103,6 +102,10 @@ window.addEventListener('DOMContentLoaded',()=>{
 
 
   if(userType==='admin'){
+    
+    
+    document.querySelector('.sub-sidebar').classList.add('collapsed');
+    document.querySelector('.main-content').classList.add('marginAdmin');
 
     loadContent(page=targetPage, force=true, type='admin');
 
@@ -119,6 +122,8 @@ window.addEventListener('DOMContentLoaded',()=>{
     );
 
   }else if (userType==='client'){
+
+    document.querySelector('.main-content').classList.add('marginClient');
 
     if (!S.get(current_sub_sidebar)){
       S.set(current_sub_sidebar, 'all_cases');
