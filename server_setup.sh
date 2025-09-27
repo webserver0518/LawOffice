@@ -1,25 +1,21 @@
-#!/bin/bash
+# server_setup.sh
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")"
 
-# Navigate to project folder
-cd "$(dirname "$0")" || exit 1
-
-# Remove old virtual environment if it exists
-rm -rf .venv
-
-# Create new virtual environment
-python3 -m venv .venv
-
-# Activate virtual environment
+PY=python3
+if [ ! -d .venv ]; then
+  "$PY" -m venv .venv
+fi
 source .venv/bin/activate
-
-# Upgrade pip and install dependencies
 pip install --upgrade pip
-pip install -r requirements.txt
-
-# Deactivate virtual environment
+if [ -f constraints.txt ]; then
+  pip install -r requirements.txt -c constraints.txt
+else
+  pip install -r requirements.txt
+fi
 deactivate
 
-# Reload systemd and restart the Flask service
 sudo systemctl daemon-reload
 sudo systemctl restart flask-lawofficesystem
-sudo systemctl status flask-lawofficesystem
+sudo systemctl --no-pager status flask-lawofficesystem
