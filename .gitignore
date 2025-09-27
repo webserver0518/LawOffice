@@ -5,7 +5,7 @@ __pycache__/
 *.pyd
 
 # סביבה וירטואלית
-venv/
+
 env/
 .venv/
 ENV/
@@ -31,3 +31,8 @@ pip-log.txt
 
 # קבצי דיבוג
 *.swp
+
+
+
+tree.txt
+test.txt
