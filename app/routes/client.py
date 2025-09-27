@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for, session, flash, request, jsonify
-from app.utils.data_managment import DataManager
+from app.utils.data_management import DataManager
 from app.utils.legal_case_classes import GreetingHelper
-from app.utils.s3_managment import S3Manager
+from app.utils.s3_management import S3Manager
 
 
 client_bp = Blueprint('client', __name__)

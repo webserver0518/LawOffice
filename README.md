@@ -14,7 +14,7 @@ app/
   routes/
     client.py            # Client-related endpoints (Blueprint)
   utils/
-    s3_managment.py      # S3 helper (boto3) - upload/list/delete
+    s3_management.py      # S3 helper (boto3) - upload/list/delete
   templates/             # Jinja2 templates
   static/                # CSS / JS / images
 run.py                   # WSGI entrypoint: app = create_app(...)
@@ -26,7 +26,7 @@ LICENSE                  # Private license
 
 Notes:
 - Admin page for user analytics is named **Users Statistics** (not `admin_stats`).
-- I renamed `admin.html` → `user_managment.html` (keep consistent everywhere).
+- I renamed `admin.html` → `user_management.html` (keep consistent everywhere).
 - CSS is being split by page; `base_dashboard` dynamically loads per‑page CSS. Keep that pattern.
 
 ---
