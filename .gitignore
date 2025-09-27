@@ -31,8 +31,7 @@ pip-log.txt
 # קבצי דיבוג
 *.swp
 
-
-
+#others
 tree.txt
 test.txt
 test.py
