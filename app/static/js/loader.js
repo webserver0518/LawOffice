@@ -127,6 +127,7 @@ const Loader = (() => {
 
 /* ───────── ניקוי SessionStorage ביציאה ───────── */
 function clearStorageAndLogout(e) {
+  console.log("clearStorageAndLogout");
   e.preventDefault();
   [current_site_content, current_dashboard_content, current_sub_sidebar].forEach(S.del);
   location.href = e.target.href;

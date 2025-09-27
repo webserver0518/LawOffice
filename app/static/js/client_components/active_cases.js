@@ -10,10 +10,12 @@
           return;
         }
         tbody.innerHTML = rows.map(r =>
-          `<tr><td>${r.serial}</td>
-          <td>${r.case_title}</td></tr>
-          <td>${r.client_name}</td></tr>
-          <td>${r.category}</td></tr>`
+          `<tr>
+          <td>${r.serial}</td>
+          <td>${r.case_title}</td>
+          <td>${r.client_name}</td>
+          <td>${r.category}</td>
+          </tr>`
         ).join('');
       })
       .catch(err => {

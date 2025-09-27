@@ -32,12 +32,5 @@ window.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const clear = link.dataset.clear;
-    if (clear) {
-      e.preventDefault();
-      clearStorageAndLogout(e);
-      return;
-    }
-
   });
 });

@@ -110,7 +110,7 @@ body:not(.sidebar-collapsed) .marginClient {
 
 .toggle-btn {
   position: absolute;
-  bottom: 0;
+  top: 0;
   right: 0;
   background: var(--c1);
   color: white;
@@ -119,7 +119,7 @@ body:not(.sidebar-collapsed) .marginClient {
   z-index: 1101;
   cursor: pointer;
   width: auto;
-  border-top-left-radius: 13px;
+  border-bottom-left-radius: 13px;
 }
 
 .sidebar.collapsed {
@@ -132,10 +132,16 @@ body:not(.sidebar-collapsed) .marginClient {
 
 
 #current-date,
-#current-time {
+#current-time,
+#office-name,
+#place-holder {
   pointer-events: none;
   cursor: default;
   background: none !important;
+}
+
+#place-holder{
+  height: 40px;
 }
 
 

@@ -89,10 +89,12 @@ function showSubMenu(type, force=false){
 /* ─────────── 6. Startup ─────────── */
 window.addEventListener('DOMContentLoaded',()=>{
 
+  S.set(current_site_content, 'home');
+
   fetch("/get_office_name")
     .then(response => response.text())
     .then(officeName => {
-        document.getElementById('office_name').textContent = officeName;
+        document.getElementById('office-name').textContent = officeName;
     })
     .catch(error => console.error("Error:", error));
     

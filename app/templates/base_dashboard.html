@@ -18,27 +18,28 @@
 
   <!-- ─────────────  Sidebar ראשי  ───────────── -->
   <div class="sidebar">
+    <a href="#" id="place-holder"></a>
     <a href="#" id="current-date"></a>
     <a href="#" id="current-time"></a>
-    <a href="#" id="office_name"></a>
+    <a href="#" id="office-name"></a>
 
     {% if session.get('user_type') == 'admin' %}
       <!-- סדר: קודם סימון תפריט, אחר-כך טעינת דף -->
-      <a href="#" class="sidebar-link" data-type="admin" data-sidebar="sidebar" data-page="users_management" >ניהול משתמשים</a>
-      <a href="#" class="sidebar-link" data-type="admin" data-sidebar="sidebar" data-page="server_info"      >סטטוס שרת</a>
-      <a href="#" class="sidebar-link" data-type="admin" data-sidebar="sidebar" data-page="users_statistics" >סטטיסטיקות</a>
+      <a href="#" class="sidebar-link" data-type="admin"  data-sidebar="sidebar" data-page="users_management"   >ניהול משתמשים</a>
+      <a href="#" class="sidebar-link" data-type="admin"  data-sidebar="sidebar" data-page="server_info"        >סטטוס שרת</a>
+      <a href="#" class="sidebar-link" data-type="admin"  data-sidebar="sidebar" data-page="users_statistics"   >סטטיסטיקות</a>
     {% else %}
-      <a href="#" class="sidebar-link" data-type="client" data-sidebar="sidebar" data-sub-sidebar="all_cases" >כל התיקים</a>
+      <a href="#" class="sidebar-link" data-type="client" data-sidebar="sidebar" data-sub-sidebar="all_cases"   >כל התיקים</a>
       <a href="#" class="sidebar-link" data-type="client" data-sidebar="sidebar" data-sub-sidebar="all_clients" >כל הלקוחות</a>
-      <a href="#" class="sidebar-link" data-type="client" data-sidebar="sidebar" data-sub-sidebar="attendancy" >שעון נוכחות</a>
+      <a href="#" class="sidebar-link" data-type="client" data-sidebar="sidebar" data-sub-sidebar="attendancy"  >שעון נוכחות</a>
     {% endif %}
     <hr>
-    <a href="{{ url_for('site.home') }}">דף הבית</a>
-    <a href="{{ url_for('site.logout') }}" onclick="clearStorageAndLogout(event)">התנתקות</a>
+    <a href="{{ url_for('site.home') }}" >דף הבית</a>
+    <a href="{{ url_for('site.logout') }}" onclick="clearStorageAndLogout(event)" >התנתקות</a>
   </div>
 
   <!-- כפתור ו-Sub-Sidebar עבור משתמש רגיל -->
-  <button class="toggle-btn" onclick="toggleSidebar()">☰ תפריט</button>
+  <button class="toggle-btn" onclick="toggleSidebar()" >☰</button>
   <div class="sub-sidebar" id="subMenu"></div>
 
   <!-- תוכן דינמי -->

@@ -16,30 +16,33 @@ def about():
 
 @site_bp.route('/login', methods=['GET', 'POST'])
 def login():
-    username = ''
-    if request.method == 'POST':
-        username = request.form['username'].strip()
-        password = request.form['password'].strip()
+    if session.get('logged_in'):
+        flash("כבר מחובר", "danger")
+    else:
+        username = ''
+        if request.method == 'POST':
+            username = request.form['username'].strip()
+            password = request.form['password'].strip()
 
-        result = UserManager.authenticate(username, password)
+            result = UserManager.authenticate(username, password)
 
-        if result == "success":
-            session['logged_in'] = True
-            session['office_name'] = UserManager.get_office_name(username)
-            session['username'] = username
-            session_id = str(uuid.uuid4())
-            session['session_id'] = session_id
-            session['user_type'] = 'admin' if username == 'admin' else 'client'
+            if result == "success":
+                session['logged_in'] = True
+                session['office_name'] = UserManager.get_office_name(username)
+                session['username'] = username
+                session_id = str(uuid.uuid4())
+                session['session_id'] = session_id
+                session['user_type'] = 'admin' if username == 'admin' else 'client'
 
-            UserManager.record_login(username, session_id)
+                UserManager.record_login(username, session_id)
 
-            return redirect(url_for('client.base_dashboard'))
+                return redirect(url_for('client.base_dashboard'))
 
-        elif result == "wrong_password":
-            flash("הסיסמה שגויה", "danger")
+            elif result == "wrong_password":
+                flash("הסיסמה שגויה", "danger")
 
-        elif result == "user_not_found":
-            flash("שם המשתמש לא קיים במערכת", "danger")
+            elif result == "user_not_found":
+                flash("שם המשתמש לא קיים במערכת", "danger")
 
     return redirect(url_for('site.home'))
 
