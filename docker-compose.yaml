@@ -1,0 +1,6 @@
+services:
+  law-office:
+    build: .
+    container_name: law-office-app
+    ports:
+      - "8000:8000"
