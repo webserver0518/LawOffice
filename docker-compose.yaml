@@ -3,5 +3,5 @@ services:
     build: .
     container_name: law-office-app
     ports:
-      - "8000:8000"
+      - "8000:80"
     restart: unless-stopped
