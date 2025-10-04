@@ -14,8 +14,4 @@ git pull
 docker-compose up -d --build
 
 # Show logs (optional)
-docker-compose logs -f law-office
-
-
-
-
+#docker-compose logs -f law-office
