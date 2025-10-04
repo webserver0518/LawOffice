@@ -6,7 +6,7 @@ import uuid
 site_bp = Blueprint('site', __name__)
 
 @site_bp.route('/')
-@site_bp.route('/home')
+@site_bp.route('site_components/home')
 def home():
     return render_template('base_site.html')
 
