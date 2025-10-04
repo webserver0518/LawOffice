@@ -8,8 +8,6 @@ docker rmi $(docker images -q)
 docker network prune -f
 docker volume prune -f
 
-git pull
-
 # Build and start your service
 docker-compose up -d --build
 
