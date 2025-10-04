@@ -3,7 +3,7 @@ services:
     build: .
     container_name: law-office-app
     ports:
-      - "8000:8000" # host-port : container-port
+      - "80:8000" # host-port : container-port
     #environment:
     #    - FLASK_ENV=development
     restart: unless-stopped
