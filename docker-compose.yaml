@@ -1,9 +1,28 @@
+version: '3.9'
+
 services:
-  law-office:
+  flask:
     build: .
     container_name: law-office-app
+    environment:
+      - FLASK_ENV=production
+    expose:
+      - "5000"  # exposes to other containers, not host
+    networks:
+      - lawoffice_net
+
+  nginx:
+    image: nginx:alpine
+    container_name: law-office-nginx
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     ports:
-      - "80:8000" # host-port : container-port
-    #environment:
-    #    - FLASK_ENV=development
-    restart: unless-stopped
+      - "8080:80"  # host port 8080 → container port 80
+    depends_on:
+      - flask
+    networks:
+      - lawoffice_net
+
+networks:
+  lawoffice_net:
+    driver: bridge
