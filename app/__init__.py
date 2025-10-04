@@ -11,7 +11,10 @@ def create_app(env='development'):
     else:
         config_class = DevelopmentConfig
 
-    app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
+    app = Flask(
+        __name__,
+        template_folder= template_dir,
+        static_folder= static_dir)
     app.config.from_object(config_class)
 
     from .routes.site import site_bp
